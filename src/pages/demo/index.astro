@@ -243,20 +243,21 @@ const demos = [
                     <span class="text-xs text-gray-500">app.medsen.sn/eleves/12345</span>
                   </div>
                 </div>
-                <div class="p-3 sm:p-6 bg-gray-50 min-h-[400px] sm:min-h-[500px]">
+                <div class="p-3 sm:p-6 bg-gray-50">
                   <!-- Header élève -->
                   <div class="bg-white rounded-xl p-3 sm:p-6 shadow-sm mb-4 sm:mb-6">
-                    <div class="flex items-start gap-3 sm:gap-6">
-                      <div class="w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-br from-sante-400 to-sante-600 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <span class="text-lg sm:text-2xl font-bold text-white">AD</span>
+                    <div class="flex items-start gap-2 sm:gap-6">
+                      <div class="w-10 h-10 sm:w-20 sm:h-20 bg-gradient-to-br from-sante-400 to-sante-600 rounded-lg sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-sm sm:text-2xl font-bold text-white">AD</span>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <h3 class="text-base sm:text-xl font-bold text-gray-900">Awa Diallo</h3>
-                        <p class="text-gray-500 text-xs sm:text-base">12 ans - Classe de 5ème</p>
+                        <h3 class="text-sm sm:text-xl font-bold text-gray-900">Awa Diallo</h3>
+                        <p class="text-gray-500 text-[10px] sm:text-base">12 ans - 5ème</p>
+                        <p class="text-[10px] text-gray-400 sm:hidden">CEM Mariama Bâ</p>
                         <p class="text-xs text-gray-400 hidden sm:block">CEM Mariama Bâ, Dakar Plateau</p>
-                        <div class="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
-                          <span class="bg-green-100 text-green-700 text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 rounded-full">Vaccins OK</span>
-                          <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 rounded-full">PAI actif</span>
+                        <div class="flex flex-wrap gap-1 mt-1 sm:mt-3">
+                          <span class="bg-green-100 text-green-700 text-[8px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">Vaccins OK</span>
+                          <span class="bg-blue-100 text-blue-700 text-[8px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">PAI actif</span>
                         </div>
                       </div>
                       <div class="text-right hidden sm:block">
@@ -267,21 +268,21 @@ const demos = [
                   </div>
                   <!-- Tabs -->
                   <div class="overflow-hidden">
-                    <div class="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0 mb-4 sm:mb-6">
-                      <div class="flex gap-1 sm:gap-2 min-w-max">
-                      <button class="bg-sante-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium">Résumé</button>
-                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Vaccinations</button>
-                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Bilans</button>
-                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Consultations</button>
-                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">PAI/PPS</button>
+                    <div class="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0 mb-3 sm:mb-6">
+                      <div class="flex gap-1 min-w-max">
+                      <button class="bg-sante-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm font-medium">Résumé</button>
+                      <button class="bg-white text-gray-600 px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm">Vaccins</button>
+                      <button class="bg-white text-gray-600 px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm">Bilans</button>
+                      <button class="bg-white text-gray-600 px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm">Consult.</button>
+                      <button class="bg-white text-gray-600 px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm">PAI</button>
                       </div>
                     </div>
                   </div>
                   <!-- Content -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
-                      <h4 class="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Dernier bilan (06/2025)</h4>
-                      <div class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                  <div class="grid grid-cols-2 gap-2 sm:gap-4">
+                    <div class="bg-white rounded-lg sm:rounded-xl p-2 sm:p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-1.5 sm:mb-3 text-[10px] sm:text-base">Bilan 06/2025</h4>
+                      <div class="space-y-1 sm:space-y-2 text-[10px] sm:text-sm">
                         <div class="flex justify-between">
                           <span class="text-gray-500">Taille</span>
                           <span class="font-medium">148 cm</span>
@@ -292,28 +293,28 @@ const demos = [
                         </div>
                         <div class="flex justify-between">
                           <span class="text-gray-500">IMC</span>
-                          <span class="font-medium text-green-600">19.2 (Normal)</span>
+                          <span class="font-medium text-green-600">19.2</span>
                         </div>
                         <div class="flex justify-between">
                           <span class="text-gray-500">Vision</span>
-                          <span class="font-medium">10/10 OD - 10/10 OG</span>
+                          <span class="font-medium">10/10</span>
                         </div>
                       </div>
                     </div>
-                    <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
-                      <h4 class="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Alertes</h4>
-                      <div class="space-y-2">
-                        <div class="flex items-start gap-2 text-xs sm:text-sm p-2 bg-blue-50 rounded-lg">
-                          <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-white rounded-lg sm:rounded-xl p-2 sm:p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-1.5 sm:mb-3 text-[10px] sm:text-base">Alertes</h4>
+                      <div class="space-y-1.5 sm:space-y-2">
+                        <div class="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-sm p-1.5 sm:p-2 bg-blue-50 rounded-md sm:rounded-lg">
+                          <svg class="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                           </svg>
-                          <span class="text-blue-700">PAI Asthme - Renouvellement 03/2026</span>
+                          <span class="text-blue-700">PAI Asthme</span>
                         </div>
-                        <div class="flex items-start gap-2 text-xs sm:text-sm p-2 bg-green-50 rounded-lg">
-                          <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-sm p-1.5 sm:p-2 bg-green-50 rounded-md sm:rounded-lg">
+                          <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                           </svg>
-                          <span class="text-green-700">Tous les vaccins à jour</span>
+                          <span class="text-green-700">Vaccins OK</span>
                         </div>
                       </div>
                     </div>
