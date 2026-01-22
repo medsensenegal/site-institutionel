@@ -388,6 +388,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- Vidéo -->
         <div class="relative">
           <div class="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Thumbnail du Dr. SYLLA -->
+            <img src="/images/dr-sylla.jpg" alt="Dr Fatou Fall SYLLA - Chef IME Dakar" class="absolute inset-0 w-full h-full object-cover" />
             <!-- Placeholder vidéo avec bouton play -->
             <div class="absolute inset-0 flex items-center justify-center">
               <div class="text-center">
@@ -400,7 +402,7 @@ import Layout from '../layouts/Layout.astro';
                 <p class="text-white/60 text-sm">Cliquez pour lire la vidéo</p>
               </div>
             </div>
-            <!-- Image de fond / thumbnail -->
+            <!-- Overlay gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
               <div class="flex items-center gap-3">
