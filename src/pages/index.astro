@@ -152,17 +152,17 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Bandeau légitimité -->
       <div class="mt-10 text-center">
-        <div class="inline-flex items-center gap-6 bg-gray-50 px-8 py-4 rounded-full">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 bg-gray-50 px-6 sm:px-8 py-4 rounded-2xl sm:rounded-full">
           <div class="flex items-center gap-2">
             <div class="w-3 h-3 bg-senegal-green rounded-full"></div>
             <span class="text-sm text-gray-600">Validé par la DCMS</span>
           </div>
-          <div class="w-px h-6 bg-gray-300"></div>
+          <div class="hidden sm:block w-px h-6 bg-gray-300"></div>
           <div class="flex items-center gap-2">
             <div class="w-3 h-3 bg-senegal-yellow rounded-full"></div>
             <span class="text-sm text-gray-600">Co-conçu avec les IME</span>
           </div>
-          <div class="w-px h-6 bg-gray-300"></div>
+          <div class="hidden sm:block w-px h-6 bg-gray-300"></div>
           <div class="flex items-center gap-2">
             <div class="w-3 h-3 bg-senegal-red rounded-full"></div>
             <span class="text-sm text-gray-600">Made in Sénégal</span>
@@ -474,23 +474,23 @@ import Layout from '../layouts/Layout.astro';
       <div class="relative">
         <!-- Écran principal (Dashboard) -->
         <div class="max-w-5xl mx-auto">
-          <div class="bg-gray-800 rounded-t-2xl p-4">
+          <div class="bg-gray-800 rounded-t-2xl p-3 sm:p-4">
             <div class="flex items-center gap-2">
               <div class="flex gap-1.5">
-                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
               </div>
               <div class="flex-1 text-center">
-                <span class="text-gray-400 text-sm">app.medsen.sn</span>
+                <span class="text-gray-400 text-xs sm:text-sm">app.medsen.sn</span>
               </div>
             </div>
           </div>
           <div class="bg-white rounded-b-2xl overflow-hidden shadow-2xl">
             <!-- Simulation du dashboard -->
-            <div class="flex">
-              <!-- Sidebar -->
-              <div class="w-64 bg-gradient-to-b from-sante-600 to-sante-700 p-4 min-h-[400px]">
+            <div class="flex flex-col lg:flex-row">
+              <!-- Sidebar - cachée sur mobile, visible sur lg+ -->
+              <div class="hidden lg:block w-64 bg-gradient-to-b from-sante-600 to-sante-700 p-4 min-h-[400px]">
                 <div class="flex items-center gap-3 mb-8">
                   <div class="w-10 h-10 bg-white/20 rounded-lg"></div>
                   <div>
@@ -507,59 +507,71 @@ import Layout from '../layouts/Layout.astro';
                   <div class="text-white/70 px-4 py-2 text-sm">Statistiques</div>
                 </nav>
               </div>
-              <!-- Contenu -->
-              <div class="flex-1 p-6 bg-gray-50">
-                <div class="flex items-center justify-between mb-6">
-                  <div>
-                    <div class="text-gray-900 font-semibold text-lg">Bonjour, Dr. Ndiaye</div>
-                    <div class="text-gray-500 text-sm">IME Dakar Centre - Lundi 20 Janvier 2026</div>
+              <!-- Barre mobile - visible uniquement sur mobile -->
+              <div class="lg:hidden bg-gradient-to-r from-sante-600 to-sante-700 p-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-white/20 rounded-lg"></div>
+                    <span class="text-white font-semibold text-sm">MEDSEN</span>
                   </div>
-                  <div class="flex gap-2">
+                  <div class="flex gap-1">
+                    <div class="w-8 h-8 bg-white/20 rounded-lg"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Contenu -->
+              <div class="flex-1 p-4 sm:p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-4 sm:mb-6">
+                  <div>
+                    <div class="text-gray-900 font-semibold text-base sm:text-lg">Bonjour, Dr. Ndiaye</div>
+                    <div class="text-gray-500 text-xs sm:text-sm">IME Dakar Centre - Lundi 20 Janvier 2026</div>
+                  </div>
+                  <div class="hidden sm:flex gap-2">
                     <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
                   </div>
                 </div>
-                <!-- Stats -->
-                <div class="grid grid-cols-4 gap-4 mb-6">
-                  <div class="bg-white p-4 rounded-xl shadow-sm">
-                    <div class="text-2xl font-bold text-sante-600">1,247</div>
-                    <div class="text-gray-500 text-sm">Élèves suivis</div>
+                <!-- Stats - 2 colonnes sur mobile, 4 sur desktop -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
+                  <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm">
+                    <div class="text-xl sm:text-2xl font-bold text-sante-600">1,247</div>
+                    <div class="text-gray-500 text-xs sm:text-sm">Élèves suivis</div>
                   </div>
-                  <div class="bg-white p-4 rounded-xl shadow-sm">
-                    <div class="text-2xl font-bold text-blue-600">23</div>
-                    <div class="text-gray-500 text-sm">Demandes en attente</div>
+                  <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm">
+                    <div class="text-xl sm:text-2xl font-bold text-blue-600">23</div>
+                    <div class="text-gray-500 text-xs sm:text-sm">Demandes</div>
                   </div>
-                  <div class="bg-white p-4 rounded-xl shadow-sm">
-                    <div class="text-2xl font-bold text-green-600">89%</div>
-                    <div class="text-gray-500 text-sm">Couverture vaccinale</div>
+                  <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm">
+                    <div class="text-xl sm:text-2xl font-bold text-green-600">89%</div>
+                    <div class="text-gray-500 text-xs sm:text-sm">Vaccination</div>
                   </div>
-                  <div class="bg-white p-4 rounded-xl shadow-sm">
-                    <div class="text-2xl font-bold text-amber-600">5</div>
-                    <div class="text-gray-500 text-sm">RDV aujourd'hui</div>
+                  <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm">
+                    <div class="text-xl sm:text-2xl font-bold text-amber-600">5</div>
+                    <div class="text-gray-500 text-xs sm:text-sm">RDV</div>
                   </div>
                 </div>
                 <!-- Liste simulée -->
-                <div class="bg-white rounded-xl shadow-sm p-4">
-                  <div class="font-semibold text-gray-900 mb-4">Demandes récentes</div>
-                  <div class="space-y-3">
-                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div class="bg-white rounded-xl shadow-sm p-3 sm:p-4">
+                  <div class="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Demandes récentes</div>
+                  <div class="space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                      <div class="w-6 h-6 sm:w-8 sm:h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full"></div>
                       </div>
-                      <div class="flex-1">
-                        <div class="text-sm font-medium text-gray-900">Urgence - École Mariama Bâ</div>
-                        <div class="text-xs text-gray-500">Élève avec fièvre élevée</div>
+                      <div class="flex-1 min-w-0">
+                        <div class="text-xs sm:text-sm font-medium text-gray-900 truncate">Urgence - École Mariama Bâ</div>
+                        <div class="text-xs text-gray-500 truncate">Élève avec fièvre élevée</div>
                       </div>
-                      <div class="text-xs text-gray-400">Il y a 5 min</div>
+                      <div class="text-xs text-gray-400 hidden sm:block">Il y a 5 min</div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                        <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+                    <div class="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                      <div class="w-6 h-6 sm:w-8 sm:h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-500 rounded-full"></div>
                       </div>
-                      <div class="flex-1">
-                        <div class="text-sm font-medium text-gray-900">Consultation - CEM Kennedy</div>
-                        <div class="text-xs text-gray-500">Troubles de la vision</div>
+                      <div class="flex-1 min-w-0">
+                        <div class="text-xs sm:text-sm font-medium text-gray-900 truncate">Consultation - CEM Kennedy</div>
+                        <div class="text-xs text-gray-500 truncate">Troubles de la vision</div>
                       </div>
-                      <div class="text-xs text-gray-400">Il y a 1h</div>
+                      <div class="text-xs text-gray-400 hidden sm:block">Il y a 1h</div>
                     </div>
                   </div>
                 </div>
