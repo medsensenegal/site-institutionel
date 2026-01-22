@@ -139,13 +139,14 @@ const demos = [
                     <span class="text-xs text-gray-500">app.medsen.sn/dashboard</span>
                   </div>
                 </div>
-                <div class="flex min-h-[500px]">
-                  <!-- Sidebar -->
-                  <div class="w-56 bg-gradient-to-b from-sante-600 to-sante-700 p-4">
-                    <div class="flex items-center gap-3 mb-8">
-                      <img src="/logo.jpg" alt="MEDSEN" class="h-8 w-auto rounded" />
+                <div class="flex flex-col sm:flex-row min-h-[400px] sm:min-h-[500px]">
+                  <!-- Sidebar - hidden on mobile, show as top bar -->
+                  <div class="sm:w-48 lg:w-56 bg-gradient-to-b sm:bg-gradient-to-b from-sante-600 to-sante-700 p-3 sm:p-4">
+                    <div class="flex sm:flex-col items-center sm:items-start gap-3 sm:mb-8">
+                      <img src="/logo.jpg" alt="MEDSEN" class="h-6 sm:h-8 w-auto rounded" />
+                      <span class="sm:hidden text-white text-sm font-medium">Tableau de bord</span>
                     </div>
-                    <nav class="space-y-1">
+                    <nav class="hidden sm:block space-y-1">
                       <div class="bg-white/20 text-white px-3 py-2 rounded-lg text-sm font-medium">Tableau de bord</div>
                       <div class="text-white/70 px-3 py-2 text-sm">Établissements</div>
                       <div class="text-white/70 px-3 py-2 text-sm flex justify-between">
@@ -154,76 +155,68 @@ const demos = [
                       </div>
                       <div class="text-white/70 px-3 py-2 text-sm">Élèves</div>
                       <div class="text-white/70 px-3 py-2 text-sm">Campagnes</div>
-                      <div class="text-white/70 px-3 py-2 text-sm">Statistiques</div>
                     </nav>
                   </div>
                   <!-- Content -->
-                  <div class="flex-1 p-6 bg-gray-50">
-                    <div class="flex items-center justify-between mb-6">
+                  <div class="flex-1 p-3 sm:p-6 bg-gray-50">
+                    <div class="flex items-center justify-between mb-4 sm:mb-6">
                       <div>
-                        <div class="text-gray-900 font-semibold text-lg">Bonjour, Dr. Diallo</div>
-                        <div class="text-gray-500 text-sm">IME Dakar Plateau - 22 Janvier 2026</div>
+                        <div class="text-gray-900 font-semibold text-sm sm:text-lg">Bonjour, Dr. Diallo</div>
+                        <div class="text-gray-500 text-xs sm:text-sm">IME Dakar Plateau - 22 Jan 2026</div>
                       </div>
-                      <div class="flex items-center gap-3">
-                        <button class="p-2 text-gray-400 hover:text-gray-600">
-                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                          </svg>
-                        </button>
-                        <div class="w-10 h-10 bg-sante-200 rounded-full flex items-center justify-center">
-                          <span class="text-sante-700 font-medium">AD</span>
-                        </div>
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 bg-sante-200 rounded-full flex items-center justify-center">
+                        <span class="text-sante-700 font-medium text-sm">AD</span>
                       </div>
                     </div>
                     <!-- Stats -->
-                    <div class="grid grid-cols-4 gap-4 mb-6">
-                      <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <div class="text-2xl font-bold text-sante-600">3,842</div>
-                        <div class="text-gray-500 text-xs">Élèves suivis</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
+                      <div class="bg-white p-2 sm:p-4 rounded-xl shadow-sm">
+                        <div class="text-lg sm:text-2xl font-bold text-sante-600">3,842</div>
+                        <div class="text-gray-500 text-[10px] sm:text-xs">Élèves suivis</div>
                       </div>
-                      <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <div class="text-2xl font-bold text-red-600">23</div>
-                        <div class="text-gray-500 text-xs">Demandes urgentes</div>
+                      <div class="bg-white p-2 sm:p-4 rounded-xl shadow-sm">
+                        <div class="text-lg sm:text-2xl font-bold text-red-600">23</div>
+                        <div class="text-gray-500 text-[10px] sm:text-xs">Demandes urgentes</div>
                       </div>
-                      <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <div class="text-2xl font-bold text-green-600">87%</div>
-                        <div class="text-gray-500 text-xs">Couverture vaccin.</div>
+                      <div class="bg-white p-2 sm:p-4 rounded-xl shadow-sm">
+                        <div class="text-lg sm:text-2xl font-bold text-green-600">87%</div>
+                        <div class="text-gray-500 text-[10px] sm:text-xs">Couverture vaccin.</div>
                       </div>
-                      <div class="bg-white p-4 rounded-xl shadow-sm">
-                        <div class="text-2xl font-bold text-blue-600">156</div>
-                        <div class="text-gray-500 text-xs">Bilans ce mois</div>
+                      <div class="bg-white p-2 sm:p-4 rounded-xl shadow-sm">
+                        <div class="text-lg sm:text-2xl font-bold text-blue-600">156</div>
+                        <div class="text-gray-500 text-[10px] sm:text-xs">Bilans ce mois</div>
                       </div>
                     </div>
                     <!-- Recent requests -->
-                    <div class="bg-white rounded-xl shadow-sm p-4">
-                      <div class="flex items-center justify-between mb-4">
-                        <div class="font-semibold text-gray-900">Demandes récentes</div>
-                        <a href="#" class="text-sante-600 text-sm">Voir tout</a>
+                    <div class="bg-white rounded-xl shadow-sm p-3 sm:p-4">
+                      <div class="flex items-center justify-between mb-3 sm:mb-4">
+                        <div class="font-semibold text-gray-900 text-sm sm:text-base">Demandes récentes</div>
+                        <a href="#" class="text-sante-600 text-xs sm:text-sm">Voir tout</a>
                       </div>
                       <div class="space-y-2">
-                        <div class="flex items-center gap-3 p-3 bg-red-50 border border-red-100 rounded-lg">
-                          <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                          <div class="flex-1">
-                            <div class="text-sm font-medium text-gray-900">Urgence - CEM Mariama Bâ</div>
-                            <div class="text-xs text-gray-500">Élève avec douleurs thoraciques</div>
+                        <div class="flex items-start sm:items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-red-50 border border-red-100 rounded-lg">
+                          <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0 mt-1 sm:mt-0"></div>
+                          <div class="flex-1 min-w-0">
+                            <div class="text-xs sm:text-sm font-medium text-gray-900 truncate">Urgence - CEM Mariama Bâ</div>
+                            <div class="text-[10px] sm:text-xs text-gray-500 truncate">Élève avec douleurs thoraciques</div>
                           </div>
-                          <span class="text-xs text-red-600 font-medium">Il y a 10 min</span>
+                          <span class="text-[10px] sm:text-xs text-red-600 font-medium whitespace-nowrap">10 min</span>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-amber-50 border border-amber-100 rounded-lg">
-                          <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
-                          <div class="flex-1">
-                            <div class="text-sm font-medium text-gray-900">Consultation - École Cheikh A. Bamba</div>
-                            <div class="text-xs text-gray-500">Troubles de la vision détectés</div>
+                        <div class="flex items-start sm:items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-amber-50 border border-amber-100 rounded-lg">
+                          <div class="w-2 h-2 bg-amber-500 rounded-full flex-shrink-0 mt-1 sm:mt-0"></div>
+                          <div class="flex-1 min-w-0">
+                            <div class="text-xs sm:text-sm font-medium text-gray-900 truncate">Consultation - École C. A. Bamba</div>
+                            <div class="text-[10px] sm:text-xs text-gray-500 truncate">Troubles de la vision détectés</div>
                           </div>
-                          <span class="text-xs text-amber-600 font-medium">Il y a 2h</span>
+                          <span class="text-[10px] sm:text-xs text-amber-600 font-medium whitespace-nowrap">2h</span>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="hidden sm:flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                           <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
                           <div class="flex-1">
                             <div class="text-sm font-medium text-gray-900">Orientation - Lycée Lamine Guèye</div>
                             <div class="text-xs text-gray-500">Demande de PAI pour diabète</div>
                           </div>
-                          <span class="text-xs text-gray-500">Il y a 1j</span>
+                          <span class="text-xs text-gray-500">1j</span>
                         </div>
                       </div>
                     </div>
@@ -250,41 +243,43 @@ const demos = [
                     <span class="text-xs text-gray-500">app.medsen.sn/eleves/12345</span>
                   </div>
                 </div>
-                <div class="p-6 bg-gray-50 min-h-[500px]">
+                <div class="p-3 sm:p-6 bg-gray-50 min-h-[400px] sm:min-h-[500px]">
                   <!-- Header élève -->
-                  <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
-                    <div class="flex items-start gap-6">
-                      <div class="w-20 h-20 bg-gradient-to-br from-sante-400 to-sante-600 rounded-2xl flex items-center justify-center">
-                        <span class="text-2xl font-bold text-white">AD</span>
+                  <div class="bg-white rounded-xl p-3 sm:p-6 shadow-sm mb-4 sm:mb-6">
+                    <div class="flex items-start gap-3 sm:gap-6">
+                      <div class="w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-br from-sante-400 to-sante-600 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-lg sm:text-2xl font-bold text-white">AD</span>
                       </div>
-                      <div class="flex-1">
-                        <h3 class="text-xl font-bold text-gray-900">Awa Diallo</h3>
-                        <p class="text-gray-500">12 ans - Classe de 5ème</p>
-                        <p class="text-sm text-gray-400">CEM Mariama Bâ, Dakar Plateau</p>
-                        <div class="flex gap-2 mt-3">
-                          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Vaccins à jour</span>
-                          <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">PAI actif</span>
+                      <div class="flex-1 min-w-0">
+                        <h3 class="text-base sm:text-xl font-bold text-gray-900">Awa Diallo</h3>
+                        <p class="text-gray-500 text-xs sm:text-base">12 ans - Classe de 5ème</p>
+                        <p class="text-xs text-gray-400 hidden sm:block">CEM Mariama Bâ, Dakar Plateau</p>
+                        <div class="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
+                          <span class="bg-green-100 text-green-700 text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 rounded-full">Vaccins OK</span>
+                          <span class="bg-blue-100 text-blue-700 text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 rounded-full">PAI actif</span>
                         </div>
                       </div>
-                      <div class="text-right">
+                      <div class="text-right hidden sm:block">
                         <div class="text-sm text-gray-500">INE</div>
-                        <div class="font-mono text-gray-900">SN-2014-DKR-12345</div>
+                        <div class="font-mono text-gray-900 text-sm">SN-2014-DKR-12345</div>
                       </div>
                     </div>
                   </div>
                   <!-- Tabs -->
-                  <div class="flex gap-2 mb-6">
-                    <button class="bg-sante-500 text-white px-4 py-2 rounded-lg text-sm font-medium">Résumé</button>
-                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Vaccinations</button>
-                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Bilans</button>
-                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Consultations</button>
-                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">PAI/PPS</button>
+                  <div class="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0 mb-4 sm:mb-6">
+                    <div class="flex gap-1 sm:gap-2 min-w-max">
+                      <button class="bg-sante-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium">Résumé</button>
+                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Vaccinations</button>
+                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Bilans</button>
+                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Consultations</button>
+                      <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">PAI/PPS</button>
+                    </div>
                   </div>
                   <!-- Content -->
-                  <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white rounded-xl p-4 shadow-sm">
-                      <h4 class="font-semibold text-gray-900 mb-3">Dernier bilan (06/2025)</h4>
-                      <div class="space-y-2 text-sm">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Dernier bilan (06/2025)</h4>
+                      <div class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                         <div class="flex justify-between">
                           <span class="text-gray-500">Taille</span>
                           <span class="font-medium">148 cm</span>
@@ -303,17 +298,17 @@ const demos = [
                         </div>
                       </div>
                     </div>
-                    <div class="bg-white rounded-xl p-4 shadow-sm">
-                      <h4 class="font-semibold text-gray-900 mb-3">Alertes</h4>
+                    <div class="bg-white rounded-xl p-3 sm:p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Alertes</h4>
                       <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-sm p-2 bg-blue-50 rounded-lg">
-                          <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-2 text-xs sm:text-sm p-2 bg-blue-50 rounded-lg">
+                          <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                           </svg>
                           <span class="text-blue-700">PAI Asthme - Renouvellement 03/2026</span>
                         </div>
-                        <div class="flex items-center gap-2 text-sm p-2 bg-green-50 rounded-lg">
-                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-2 text-xs sm:text-sm p-2 bg-green-50 rounded-lg">
+                          <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                           <span class="text-green-700">Tous les vaccins à jour</span>
