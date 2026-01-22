@@ -1,0 +1,252 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Contact">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-sante-600 to-sante-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          Parlons-en
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+          Contactez-nous
+        </h1>
+        <p class="text-xl text-white/90">
+          Vous êtes intéressé par MEDSEN ? Décideur public, partenaire potentiel ou simplement curieux,
+          nous sommes à votre écoute.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Formulaire -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            Envoyez-nous un message
+          </h2>
+          <form class="space-y-6" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
+            </p>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
+                <input
+                  type="text"
+                  id="nom"
+                  name="nom"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors"
+                  placeholder="Votre nom"
+                />
+              </div>
+              <div>
+                <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
+                <input
+                  type="text"
+                  id="prenom"
+                  name="prenom"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors"
+                  placeholder="Votre prénom"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors"
+                placeholder="votre@email.com"
+              />
+            </div>
+
+            <div>
+              <label for="organisation" class="block text-sm font-medium text-gray-700 mb-2">Organisation</label>
+              <input
+                type="text"
+                id="organisation"
+                name="organisation"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors"
+                placeholder="Ministère, ONG, Entreprise..."
+              />
+            </div>
+
+            <div>
+              <label for="sujet" class="block text-sm font-medium text-gray-700 mb-2">Sujet *</label>
+              <select
+                id="sujet"
+                name="sujet"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors bg-white"
+              >
+                <option value="">Sélectionnez un sujet</option>
+                <option value="demo">Demande de démonstration</option>
+                <option value="partenariat">Proposition de partenariat</option>
+                <option value="information">Demande d'information</option>
+                <option value="presse">Contact presse</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sante-500 focus:border-sante-500 transition-colors resize-none"
+                placeholder="Décrivez votre demande..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-sante-500 hover:bg-sante-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
+            >
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+
+        <!-- Informations -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            Autres moyens de nous joindre
+          </h2>
+
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-sante-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-sante-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                <p class="text-gray-600">ndeyetalla.dioum@medsen.sn</p>
+                <p class="text-sm text-gray-500 mt-1">Réponse sous 48h ouvrées</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Téléphone</h3>
+                <p class="text-gray-600">+221 77 845 88 02</p>
+                <p class="text-sm text-gray-500 mt-1">Lun-Ven, 9h-17h (GMT)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Adresse</h3>
+                <p class="text-gray-600">Dakar, Sénégal</p>
+                <p class="text-sm text-gray-500 mt-1">Sur rendez-vous uniquement</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Démonstration -->
+          <div class="mt-12 bg-gradient-to-br from-sante-50 to-sante-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              Demandez une démonstration
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Vous souhaitez voir MEDSEN en action ? Nous organisons des démonstrations
+              personnalisées pour les décideurs et partenaires potentiels.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Présentation complète de la plateforme
+              </li>
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Réponses à vos questions techniques
+              </li>
+              <li class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Discussion sur les modalités de déploiement
+              </li>
+            </ul>
+            <p class="text-sm text-gray-500">
+              Sélectionnez "Demande de démonstration" dans le formulaire ci-contre.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ rapide -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+        Questions fréquentes
+      </h2>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-2">MEDSEN est-il déjà déployé ?</h3>
+          <p class="text-gray-600">
+            MEDSEN est actuellement en phase finale de développement. Nous recherchons des partenaires
+            pour un déploiement pilote avant une généralisation nationale.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-2">Quel est le modèle économique ?</h3>
+          <p class="text-gray-600">
+            Nous sommes ouverts à différentes modalités : partenariat public-privé, financement
+            par des bailleurs internationaux (UNICEF, OMS), ou acquisition directe par l'État.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-2">Les données sont-elles sécurisées ?</h3>
+          <p class="text-gray-600">
+            Absolument. MEDSEN est conçu avec les plus hauts standards de sécurité : chiffrement,
+            contrôle d'accès strict, audit trail, hébergement souverain possible.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-2">Comment puis-je soutenir le projet ?</h3>
+          <p class="text-gray-600">
+            Contactez-nous ! Que vous soyez un décideur pouvant faciliter l'adoption, un partenaire
+            technique, ou un bailleur de fonds, votre soutien est précieux.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

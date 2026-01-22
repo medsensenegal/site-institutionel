@@ -1,17 +1,603 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Accueil">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-sante-600 via-sante-500 to-sante-400 text-white overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+            <span class="w-2 h-2 bg-senegal-yellow rounded-full animate-pulse"></span>
+            <span class="text-sm font-medium">Convention Internationale des Droits de l'Enfant</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            La santé de nos enfants,<br/>
+            <span class="text-senegal-yellow">un droit fondamental</span>
+          </h1>
+
+          <p class="text-xl text-white/90 mb-8 max-w-xl">
+            MEDSEN est la plateforme nationale de santé scolaire du Sénégal.
+            Un outil innovant au service de <strong>6 millions d'élèves</strong> pour garantir
+            leur droit à la santé tel que défini par l'Article 24 de la CIDE.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/nos-missions" class="bg-white text-sante-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-colors text-center">
+              Découvrir nos missions
+            </a>
+            <a href="/contact" class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-colors text-center">
+              Nous contacter
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <div class="relative">
+            <!-- Decorative circles -->
+            <div class="absolute -top-8 -right-8 w-64 h-64 bg-senegal-yellow/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-white/20 rounded-full blur-3xl"></div>
+
+            <!-- Stats Card -->
+            <div class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="text-center p-4">
+                  <div class="text-4xl font-extrabold text-senegal-yellow">6M+</div>
+                  <div class="text-sm text-white/80 mt-1">Élèves concernés</div>
+                </div>
+                <div class="text-center p-4">
+                  <div class="text-4xl font-extrabold text-senegal-yellow">14</div>
+                  <div class="text-sm text-white/80 mt-1">Régions couvertes</div>
+                </div>
+                <div class="text-center p-4">
+                  <div class="text-4xl font-extrabold text-senegal-yellow">3-18</div>
+                  <div class="text-sm text-white/80 mt-1">Ans (âge cible)</div>
+                </div>
+                <div class="text-center p-4">
+                  <div class="text-4xl font-extrabold text-senegal-yellow">100%</div>
+                  <div class="text-sm text-white/80 mt-1">Numérique</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave separator -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Partenariat Institutionnel -->
+  <section class="py-16 bg-gradient-to-r from-sante-50 via-white to-senegal-yellow/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="inline-block bg-senegal-green/10 text-senegal-green text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Partenariat Officiel
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          Un projet soutenu par les institutions
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Charte DCMS -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-senegal-green">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 bg-senegal-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-8 h-8 text-senegal-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-senegal-green mb-1">Charte de projet signée</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Division du Contrôle Médical Scolaire (DCMS)</h3>
+              <p class="text-gray-600 mb-4">
+                MEDSEN a signé une charte de projet avec la DCMS du Ministère de l'Éducation Nationale,
+                validant officiellement notre démarche et nos objectifs communs pour la santé des élèves.
+              </p>
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <svg class="w-4 h-4 text-senegal-green" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Ministère de l'Éducation Nationale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collaboration IME Dakar -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-sante-500">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 bg-sante-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-8 h-8 text-sante-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-sante-600 mb-1">Collaboration active</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Inspection Médicale des Écoles de Dakar</h3>
+              <p class="text-gray-600 mb-4">
+                Une collaboration étroite avec la Chef de l'IME de Dakar nous permet de concevoir
+                MEDSEN au plus près des réalités du terrain et des besoins des professionnels de santé scolaire.
+              </p>
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <svg class="w-4 h-4 text-sante-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Échanges réguliers et retours terrain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bandeau légitimité -->
+      <div class="mt-10 text-center">
+        <div class="inline-flex items-center gap-6 bg-gray-50 px-8 py-4 rounded-full">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-senegal-green rounded-full"></div>
+            <span class="text-sm text-gray-600">Validé par la DCMS</span>
+          </div>
+          <div class="w-px h-6 bg-gray-300"></div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-senegal-yellow rounded-full"></div>
+            <span class="text-sm text-gray-600">Co-conçu avec les IME</span>
+          </div>
+          <div class="w-px h-6 bg-gray-300"></div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-senegal-red rounded-full"></div>
+            <span class="text-sm text-gray-600">Made in Sénégal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIDE Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-sante-100 text-sante-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Fondement Juridique
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Ancré dans les Droits de l'Enfant
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          MEDSEN traduit en actions concrètes les engagements du Sénégal
+          envers la Convention Internationale des Droits de l'Enfant, ratifiée en 1990.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Article 24 -->
+        <div class="bg-gradient-to-br from-sante-50 to-white rounded-2xl p-8 border border-sante-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-sante-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-sante-600 mb-2">Article 24</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Droit à la santé</h3>
+          <p class="text-gray-600">
+            Bilans de santé systématiques, vaccinations, dépistages précoces et accès aux soins
+            pour tous les élèves sans discrimination.
+          </p>
+        </div>
+
+        <!-- Article 23 -->
+        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-blue-600 mb-2">Article 23</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Droits des enfants handicapés</h3>
+          <p class="text-gray-600">
+            Identification des besoins spécifiques, Plans d'Accompagnement Individualisés (PAI)
+            et Projets Personnalisés de Scolarisation (PPS).
+          </p>
+        </div>
+
+        <!-- Article 19 -->
+        <div class="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-8 border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-amber-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-amber-600 mb-2">Article 19</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Protection de l'enfant</h3>
+          <p class="text-gray-600">
+            Système de signalement des situations préoccupantes et protocole de protection
+            des enfants contre toute forme de violence.
+          </p>
+        </div>
+
+        <!-- Article 28 -->
+        <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border border-purple-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-purple-600 mb-2">Article 28</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Droit à l'éducation</h3>
+          <p class="text-gray-600">
+            Suivi santé permettant le maintien en scolarité et la réussite éducative
+            de chaque enfant, quels que soient ses besoins.
+          </p>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="bg-gradient-to-br from-rose-50 to-white rounded-2xl p-8 border border-rose-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-rose-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-rose-600 mb-2">Article 3</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Intérêt supérieur de l'enfant</h3>
+          <p class="text-gray-600">
+            Principe directeur de toutes les décisions : chaque action dans MEDSEN
+            place l'intérêt de l'enfant au centre.
+          </p>
+        </div>
+
+        <!-- Article 12 -->
+        <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-8 border border-teal-100 hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-teal-600 mb-2">Article 12</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Droit d'être entendu</h3>
+          <p class="text-gray-600">
+            Portail parents pour le dialogue, système de consentement éclairé
+            et participation des familles aux décisions de santé.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-sante-100 text-sante-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Fonctionnalités
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Une plateforme complète
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          MEDSEN couvre l'ensemble du parcours de santé scolaire,
+          de la prévention au suivi individualisé.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-sante-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-sante-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Dossier Santé Unique</h3>
+              <p class="text-gray-600">
+                Un dossier numérique pour chaque élève avec son historique complet :
+                bilans, vaccinations, consultations, orientations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Campagnes de prévention</h3>
+              <p class="text-gray-600">
+                Organisation et suivi des campagnes de vaccination, dépistage visuel,
+                auditif, bucco-dentaire et nutritionnel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Workflow École-IME</h3>
+              <p class="text-gray-600">
+                Circuit de demande fluide entre les établissements scolaires
+                et les Inspections Médicales des Écoles.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Tableaux de bord</h3>
+              <p class="text-gray-600">
+                Statistiques en temps réel pour piloter la santé scolaire
+                à l'échelle locale, régionale et nationale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lien vers toutes les fonctionnalités -->
+  <div class="text-center mt-12">
+    <a href="/fonctionnalites" class="inline-flex items-center gap-2 text-sante-600 hover:text-sante-700 font-semibold">
+      Découvrir toutes les fonctionnalités
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+  </section>
+
+  <!-- Témoignage Vidéo - Chef IME Dakar -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Vidéo -->
+        <div class="relative">
+          <div class="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Placeholder vidéo avec bouton play -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <!-- Icône play -->
+                <button id="play-video-btn" class="w-20 h-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all group mb-4 mx-auto">
+                  <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+                <p class="text-white/60 text-sm">Cliquez pour lire la vidéo</p>
+              </div>
+            </div>
+            <!-- Image de fond / thumbnail -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-sante-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">Dr Fatou Fall SYLLA</div>
+                  <div class="text-white/70 text-sm">Chef IME Dakar</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Badge -->
+          <div class="absolute -top-4 -right-4 bg-senegal-yellow text-gray-900 text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+            Témoignage
+          </div>
+        </div>
+
+        <!-- Citation -->
+        <div>
+          <div class="inline-flex items-center gap-2 bg-sante-100 text-sante-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            Témoignage du terrain
+          </div>
+
+          <blockquote class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-relaxed">
+            "C'est exactement ce qu'il nous faut. MEDSEN va transformer notre façon de travailler
+            et nous permettre enfin de suivre chaque enfant correctement."
+          </blockquote>
+
+          <p class="text-lg text-gray-600 mb-8">
+            Le Dr Fatou Fall SYLLA, Chef de l'Inspection Médicale des Écoles de Dakar,
+            témoigne de l'importance d'un outil comme MEDSEN pour améliorer le suivi sanitaire
+            des élèves dans sa circonscription.
+          </p>
+
+          <div class="flex items-center gap-4">
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Dr Fatou Fall SYLLA</div>
+              <div class="text-gray-500">Chef IME Dakar</div>
+              <div class="text-sante-600 text-sm">15 ans d'expérience en santé scolaire</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aperçu de l'application -->
+  <section class="py-20 bg-gray-900 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-white/10 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Aperçu de l'application
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          Une interface moderne et intuitive
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          MEDSEN a été conçu pour être simple à utiliser, même pour les utilisateurs
+          peu familiers avec les outils numériques.
+        </p>
+      </div>
+
+      <!-- Galerie d'écrans simulés -->
+      <div class="relative">
+        <!-- Écran principal (Dashboard) -->
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-gray-800 rounded-t-2xl p-4">
+            <div class="flex items-center gap-2">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div class="flex-1 text-center">
+                <span class="text-gray-400 text-sm">app.medsen.sn</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-b-2xl overflow-hidden shadow-2xl">
+            <!-- Simulation du dashboard -->
+            <div class="flex">
+              <!-- Sidebar -->
+              <div class="w-64 bg-gradient-to-b from-sante-600 to-sante-700 p-4 min-h-[400px]">
+                <div class="flex items-center gap-3 mb-8">
+                  <div class="w-10 h-10 bg-white/20 rounded-lg"></div>
+                  <div>
+                    <div class="text-white font-semibold">MEDSEN</div>
+                    <div class="text-white/60 text-xs">IME Dakar Centre</div>
+                  </div>
+                </div>
+                <nav class="space-y-2">
+                  <div class="bg-white/20 text-white px-4 py-2 rounded-lg text-sm font-medium">Tableau de bord</div>
+                  <div class="text-white/70 px-4 py-2 text-sm">Élèves</div>
+                  <div class="text-white/70 px-4 py-2 text-sm">Demandes</div>
+                  <div class="text-white/70 px-4 py-2 text-sm">Consultations</div>
+                  <div class="text-white/70 px-4 py-2 text-sm">Campagnes</div>
+                  <div class="text-white/70 px-4 py-2 text-sm">Statistiques</div>
+                </nav>
+              </div>
+              <!-- Contenu -->
+              <div class="flex-1 p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-6">
+                  <div>
+                    <div class="text-gray-900 font-semibold text-lg">Bonjour, Dr. Ndiaye</div>
+                    <div class="text-gray-500 text-sm">IME Dakar Centre - Lundi 20 Janvier 2026</div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                  </div>
+                </div>
+                <!-- Stats -->
+                <div class="grid grid-cols-4 gap-4 mb-6">
+                  <div class="bg-white p-4 rounded-xl shadow-sm">
+                    <div class="text-2xl font-bold text-sante-600">1,247</div>
+                    <div class="text-gray-500 text-sm">Élèves suivis</div>
+                  </div>
+                  <div class="bg-white p-4 rounded-xl shadow-sm">
+                    <div class="text-2xl font-bold text-blue-600">23</div>
+                    <div class="text-gray-500 text-sm">Demandes en attente</div>
+                  </div>
+                  <div class="bg-white p-4 rounded-xl shadow-sm">
+                    <div class="text-2xl font-bold text-green-600">89%</div>
+                    <div class="text-gray-500 text-sm">Couverture vaccinale</div>
+                  </div>
+                  <div class="bg-white p-4 rounded-xl shadow-sm">
+                    <div class="text-2xl font-bold text-amber-600">5</div>
+                    <div class="text-gray-500 text-sm">RDV aujourd'hui</div>
+                  </div>
+                </div>
+                <!-- Liste simulée -->
+                <div class="bg-white rounded-xl shadow-sm p-4">
+                  <div class="font-semibold text-gray-900 mb-4">Demandes récentes</div>
+                  <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-sm font-medium text-gray-900">Urgence - École Mariama Bâ</div>
+                        <div class="text-xs text-gray-500">Élève avec fièvre élevée</div>
+                      </div>
+                      <div class="text-xs text-gray-400">Il y a 5 min</div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-sm font-medium text-gray-900">Consultation - CEM Kennedy</div>
+                        <div class="text-xs text-gray-500">Troubles de la vision</div>
+                      </div>
+                      <div class="text-xs text-gray-400">Il y a 1h</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/fonctionnalites" class="inline-flex items-center gap-2 bg-sante-500 hover:bg-sante-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors">
+          Explorer toutes les fonctionnalités
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-sante-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+        Prêt à transformer la santé scolaire au Sénégal ?
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        MEDSEN est une solution clé en main, développée avec les standards internationaux
+        et adaptée aux réalités du terrain sénégalais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-white text-sante-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Demander une démonstration
+        </a>
+        <a href="/a-propos" class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,681 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="À Propos">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-sante-600 to-sante-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          Qui sommes-nous
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+          À Propos de MEDSEN
+        </h1>
+        <p class="text-xl text-white/90">
+          MEDSEN naît d'une conviction : chaque enfant sénégalais a droit à un suivi de santé
+          de qualité, quels que soient sa région, son école ou sa situation familiale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre histoire -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">
+            Pourquoi MEDSEN ?
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Le Sénégal a ratifié la Convention Internationale des Droits de l'Enfant en 1990.
+            Plus de 30 ans après, le système de santé scolaire reste fragmenté, reposant largement
+            sur des processus manuels et des dossiers papier.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            MEDSEN est né de la volonté de traduire les engagements du Sénégal en actions concrètes,
+            en utilisant la technologie pour créer un système de suivi <strong>universel, continu et équitable</strong>.
+          </p>
+          <p class="text-lg text-gray-600">
+            Notre plateforme n'est pas qu'un outil technique : c'est un <strong>instrument de politique publique</strong>
+            au service des enfants, des familles, des professionnels de santé et des décideurs.
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-sante-50 to-sante-100 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Le contexte sénégalais</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-sante-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p class="text-gray-700">6 millions d'élèves scolarisés (3-18 ans)</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-sante-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p class="text-gray-700">14 régions avec des réalités différentes</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-sante-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p class="text-gray-700">Inspections Médicales des Écoles (IME) sous-équipées</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-sante-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p class="text-gray-700">Pas de système d'information national unifié</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-sante-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p class="text-gray-700">Obligations de rapportage à l'ONU sur la CIDE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos valeurs -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Nos valeurs
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          MEDSEN est guidé par des principes fondamentaux qui orientent chaque décision.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="w-16 h-16 bg-sante-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-sante-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Équité</h3>
+          <p class="text-gray-600 text-sm">
+            Chaque enfant a droit au même niveau de suivi, qu'il soit à Dakar ou à Kédougou.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Protection</h3>
+          <p class="text-gray-600 text-sm">
+            Les données de santé sont sensibles. Nous appliquons les plus hauts standards de sécurité.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Collaboration</h3>
+          <p class="text-gray-600 text-sm">
+            Écoles, IME, familles et ministères travaillent ensemble sur une plateforme commune.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Innovation</h3>
+          <p class="text-gray-600 text-sm">
+            Technologies modernes adaptées aux réalités du terrain sénégalais.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fondatrice -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="inline-block bg-sante-100 text-sante-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+            Leadership
+          </span>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">
+            Une expertise internationale au service du Sénégal
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            MEDSEN a été fondée par <strong>Ndeye Talla DIOUM</strong>, ingénieure diplômée de
+            <strong>CentraleSupélec</strong> (France), l'une des plus prestigieuses écoles d'ingénieurs au monde.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Forte d'une expérience internationale dans le domaine de la santé numérique et des systèmes
+            d'information, elle a choisi de mettre son expertise au service de son pays natal,
+            le Sénégal, avec une vision claire : moderniser la santé scolaire pour chaque enfant.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">CentraleSupélec</span>
+            <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">E-Santé</span>
+            <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">Interopérabilité</span>
+            <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">Standards IHE</span>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-sante-50 to-sante-100 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Engagements & Réseaux</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-sante-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Partenaire IHE International</p>
+                <p class="text-sm text-gray-600">Integrating the Healthcare Enterprise - Standards d'interopérabilité</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Chef de file "Digitalisation"</p>
+                <p class="text-sm text-gray-600">Transform Health Sénégal avec Enda Santé</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Membre de la Commission nationale</p>
+                <p class="text-sm text-gray-600">Gouvernance des données de santé au Sénégal</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">West & Central Africa Network</p>
+                <p class="text-sm text-gray-600">Avec Africa CDC, Digital Square et partenaires</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre Parcours - Timeline -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block bg-senegal-green/10 text-senegal-green text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Notre Histoire
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          5 ans de développement au Sénégal
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Un parcours jalonné de partenariats stratégiques et de reconnaissances internationales.
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-sante-500 via-senegal-yellow to-senegal-green hidden lg:block"></div>
+
+        <!-- 2025 -->
+        <div class="relative mb-12">
+          <div class="lg:flex items-center">
+            <div class="lg:w-1/2 lg:pr-12 lg:text-right mb-6 lg:mb-0">
+              <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-sante-500 lg:border-l-0 lg:border-r-4">
+                <span class="inline-block bg-sante-500 text-white text-sm font-bold px-3 py-1 rounded-full mb-3">2025</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Expansion des partenariats institutionnels</h3>
+                <ul class="text-gray-600 text-sm space-y-2">
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-sante-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Rencontres avec l'ANSD, Sécurité sociale, CMU</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-sante-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Tests connectivité avec acteurs télécom nationaux</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-sante-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Pilote Centre de santé Philippe Senghor</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-sante-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Collaboration Département Partenariat Ministère Santé</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="hidden lg:flex w-12 h-12 bg-sante-500 rounded-full items-center justify-center z-10 mx-auto shadow-lg">
+              <span class="text-white font-bold text-sm">25</span>
+            </div>
+            <div class="lg:w-1/2 lg:pl-12"></div>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="relative mb-12">
+          <div class="lg:flex items-center">
+            <div class="lg:w-1/2 lg:pr-12"></div>
+            <div class="hidden lg:flex w-12 h-12 bg-blue-500 rounded-full items-center justify-center z-10 mx-auto shadow-lg">
+              <span class="text-white font-bold text-sm">24</span>
+            </div>
+            <div class="lg:w-1/2 lg:pl-12 mb-6 lg:mb-0">
+              <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500">
+                <span class="inline-block bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full mb-3">2024</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Reconnaissance internationale & Tests pilotes</h3>
+                <ul class="text-gray-600 text-sm space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>Connectathon IHE Europe</strong> - Italie (Juin)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Tests pilotes IME Dakar + établissements scolaires</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Partenariat DCMS & Inspection Académique</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Tests Centre de santé Philippe Senghor & UCAD</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="relative mb-12">
+          <div class="lg:flex items-center">
+            <div class="lg:w-1/2 lg:pr-12 lg:text-right mb-6 lg:mb-0">
+              <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-purple-500 lg:border-l-0 lg:border-r-4">
+                <span class="inline-block bg-purple-500 text-white text-sm font-bold px-3 py-1 rounded-full mb-3">2023</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Rayonnement africain & Standardisation</h3>
+                <ul class="text-gray-600 text-sm space-y-2">
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>Africa Health Tech Summit</strong> - Kigali (AWIDH)</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>OOAS</strong> - Rencontre managers SI santé CEDEAO</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>Partenaire IHE</strong> - Démo faisabilité Dakar (Nov)</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Commission gouvernance données santé Sénégal</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="hidden lg:flex w-12 h-12 bg-purple-500 rounded-full items-center justify-center z-10 mx-auto shadow-lg">
+              <span class="text-white font-bold text-sm">23</span>
+            </div>
+            <div class="lg:w-1/2 lg:pl-12"></div>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="relative mb-12">
+          <div class="lg:flex items-center">
+            <div class="lg:w-1/2 lg:pr-12"></div>
+            <div class="hidden lg:flex w-12 h-12 bg-amber-500 rounded-full items-center justify-center z-10 mx-auto shadow-lg">
+              <span class="text-white font-bold text-sm">22</span>
+            </div>
+            <div class="lg:w-1/2 lg:pl-12 mb-6 lg:mb-0">
+              <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-amber-500">
+                <span class="inline-block bg-amber-500 text-white text-sm font-bold px-3 py-1 rounded-full mb-3">2022</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Développement MEDSEN v2</h3>
+                <ul class="text-gray-600 text-sm space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Dossier patient complet</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Système d'information sanitaire</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Architecture couverture sanitaire universelle nationale</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="relative">
+          <div class="lg:flex items-center">
+            <div class="lg:w-1/2 lg:pr-12 lg:text-right mb-6 lg:mb-0">
+              <div class="bg-gradient-to-br from-senegal-green/10 to-senegal-green/20 rounded-2xl p-6 shadow-lg border-l-4 border-senegal-green lg:border-l-0 lg:border-r-4">
+                <span class="inline-block bg-senegal-green text-white text-sm font-bold px-3 py-1 rounded-full mb-3">2020</span>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Création de MEDSEN</h3>
+                <ul class="text-gray-600 text-sm space-y-2">
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-senegal-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>Création de l'entreprise sénégalaise MEDSEN</strong></span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-senegal-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Plateforme e-santé conçue à l'échelle nationale</span>
+                  </li>
+                  <li class="flex items-start gap-2 lg:flex-row-reverse lg:text-right">
+                    <svg class="w-4 h-4 text-senegal-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Lancement MEDSEN v1 : Mise en relation Patients-Médecins</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="hidden lg:flex w-12 h-12 bg-senegal-green rounded-full items-center justify-center z-10 mx-auto shadow-lg">
+              <span class="text-white font-bold text-sm">20</span>
+            </div>
+            <div class="lg:w-1/2 lg:pl-12"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badges partenaires -->
+      <div class="mt-16 text-center">
+        <p class="text-sm text-gray-500 mb-6">Reconnu et soutenu par</p>
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          <div class="bg-white px-6 py-3 rounded-lg shadow-sm border">
+            <span class="text-gray-700 font-semibold">IHE International</span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-lg shadow-sm border">
+            <span class="text-gray-700 font-semibold">OOAS / CEDEAO</span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-lg shadow-sm border">
+            <span class="text-gray-700 font-semibold">Transform Health</span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-lg shadow-sm border">
+            <span class="text-gray-700 font-semibold">Africa CDC</span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-lg shadow-sm border">
+            <span class="text-gray-700 font-semibold">AWIDH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Légitimité Institutionnelle -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="inline-block bg-senegal-green/10 text-senegal-green text-sm font-semibold px-4 py-2 rounded-full mb-4">
+          Reconnaissance Officielle
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Un projet validé par les institutions
+        </h2>
+        <p class="text-xl text-gray-600">
+          MEDSEN bénéficie d'une reconnaissance institutionnelle qui légitime notre démarche.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- Charte DCMS -->
+        <div class="bg-gradient-to-br from-senegal-green/5 to-senegal-green/10 rounded-2xl p-8 border border-senegal-green/20">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-senegal-green rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm text-senegal-green font-semibold">Charte de Projet Signée</div>
+              <h3 class="text-xl font-bold text-gray-900">Division du Contrôle Médical Scolaire</h3>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">
+            La DCMS, rattachée au Ministère de l'Éducation Nationale du Sénégal, a officiellement
+            validé le projet MEDSEN en signant une charte de collaboration. Ce document formalise notre
+            engagement commun à améliorer le suivi sanitaire des élèves sénégalais.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-senegal-green" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Validation des objectifs du projet
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-senegal-green" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Alignement avec les politiques de santé scolaire
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-senegal-green" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Engagement pour un déploiement pilote
+            </li>
+          </ul>
+        </div>
+
+        <!-- Collaboration IME Dakar -->
+        <div class="bg-gradient-to-br from-sante-50 to-sante-100 rounded-2xl p-8 border border-sante-200">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 bg-sante-500 rounded-2xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm text-sante-600 font-semibold">Collaboration Active</div>
+              <h3 class="text-xl font-bold text-gray-900">IME de Dakar</h3>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Des échanges réguliers et approfondis avec la Chef de l'Inspection Médicale des Écoles de Dakar
+            nous permettent de concevoir MEDSEN au plus près des réalités du terrain. Ces retours d'expérience
+            sont essentiels pour garantir l'adéquation de l'outil aux besoins réels.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-sante-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Retours d'expérience terrain réguliers
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-sante-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Validation des fonctionnalités métier
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <svg class="w-4 h-4 text-sante-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Témoignage vidéo de soutien
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Citation témoignage -->
+      <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-sante-500 max-w-4xl mx-auto">
+        <svg class="w-10 h-10 text-sante-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+        <blockquote class="text-xl font-medium text-gray-900 mb-4">
+          "C'est exactement ce qu'il nous faut. MEDSEN va transformer notre façon de travailler
+          et nous permettre enfin de suivre chaque enfant correctement."
+        </blockquote>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-sante-500 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold text-gray-900">Chef de l'IME de Dakar</div>
+            <div class="text-sm text-gray-500">Inspection Médicale des Écoles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cadre juridique -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Un cadre juridique solide
+        </h2>
+        <p class="text-xl text-gray-600">
+          MEDSEN s'inscrit dans le cadre des engagements internationaux du Sénégal.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-senegal-green/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-senegal-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Convention des Droits de l'Enfant</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Ratifiée par le Sénégal en 1990. MEDSEN met en œuvre concrètement les articles 24 (santé),
+            23 (handicap), 19 (protection) et 28 (éducation).
+          </p>
+          <a href="https://www.unicef.org/child-rights-convention" target="_blank" class="text-sante-600 text-sm font-medium hover:underline">
+            En savoir plus →
+          </a>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-senegal-yellow/20 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Plan Sénégal Émergent</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Le PSE fait de la santé et de l'éducation des priorités nationales.
+            MEDSEN contribue à l'atteinte des objectifs de développement humain.
+          </p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Objectifs de Développement Durable</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            ODD 3 (Santé), ODD 4 (Éducation), ODD 10 (Réduction des inégalités).
+            MEDSEN contribue directement à ces objectifs mondiaux.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">
+        Rejoignez le mouvement
+      </h2>
+      <p class="text-xl text-gray-300 mb-8">
+        MEDSEN est un projet ambitieux qui nécessite l'engagement de tous les acteurs.
+        Que vous soyez décideur public, partenaire potentiel ou simplement intéressé,
+        contactez-nous.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-sante-500 hover:bg-sante-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Nous contacter
+        </a>
+        <a href="/nos-missions" class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Découvrir nos missions
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

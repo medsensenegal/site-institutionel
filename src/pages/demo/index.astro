@@ -1,0 +1,531 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Différentes vues de l'application à présenter
+const demos = [
+  {
+    id: 'dashboard-ime',
+    titre: 'Tableau de bord IME',
+    description: 'Vue d\'ensemble pour le médecin chef d\'une Inspection Médicale des Écoles',
+    role: 'Médecin Chef IME'
+  },
+  {
+    id: 'eleve',
+    titre: 'Dossier Santé Élève',
+    description: 'Fiche complète d\'un élève avec son historique médical scolaire',
+    role: 'Personnel médical'
+  },
+  {
+    id: 'demandes',
+    titre: 'Gestion des demandes',
+    description: 'Circuit de demandes entre les écoles et l\'IME',
+    role: 'Secrétariat IME'
+  },
+  {
+    id: 'campagne',
+    titre: 'Campagne de vaccination',
+    description: 'Organisation et suivi d\'une campagne vaccinale',
+    role: 'Coordinateur'
+  },
+  {
+    id: 'parent',
+    titre: 'Portail Parent',
+    description: 'Vue du parent pour suivre la santé de son enfant',
+    role: 'Parent / Tuteur'
+  }
+];
+---
+
+<Layout title="Démonstration">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-flex items-center gap-2 bg-sante-500/20 text-sante-300 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <span class="w-2 h-2 bg-sante-400 rounded-full animate-pulse"></span>
+          Mode Démonstration
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+          Découvrez MEDSEN en action
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Explorez les différentes fonctionnalités de la plateforme à travers
+          des captures d'écran interactives et des scénarios réels.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="bg-sante-500 hover:bg-sante-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors">
+            Demander une démo personnalisée
+          </a>
+          <a href="#explorer" class="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold transition-colors">
+            Explorer ci-dessous
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation des vues -->
+  <section id="explorer" class="bg-white border-b border-gray-200 sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-4 py-4 overflow-x-auto">
+        {demos.map((demo, index) => (
+          <a
+            href={`#${demo.id}`}
+            class={`text-sm font-medium whitespace-nowrap px-4 py-2 rounded-lg transition-colors ${index === 0 ? 'bg-sante-100 text-sante-700' : 'text-gray-600 hover:bg-gray-100'}`}
+          >
+            {demo.titre}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Démos détaillées -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-24">
+
+        <!-- Dashboard IME -->
+        <div id="dashboard-ime" class="scroll-mt-40">
+          <div class="grid lg:grid-cols-5 gap-8 items-start">
+            <div class="lg:col-span-2">
+              <div class="sticky top-40">
+                <span class="inline-block bg-sante-100 text-sante-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  Médecin Chef IME
+                </span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tableau de bord IME</h2>
+                <p class="text-gray-600 mb-6">
+                  Le tableau de bord central permet au médecin chef de visualiser en un coup d'œil
+                  l'état de santé de sa circonscription : demandes en attente, alertes, statistiques.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Indicateurs clés en temps réel
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Demandes prioritaires et urgences
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Couverture vaccinale par établissement
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-sante-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Calendrier des campagnes
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lg:col-span-3">
+              <!-- Simulation Dashboard -->
+              <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                  </div>
+                  <div class="flex-1 text-center">
+                    <span class="text-xs text-gray-500">app.medsen.sn/dashboard</span>
+                  </div>
+                </div>
+                <div class="flex min-h-[500px]">
+                  <!-- Sidebar -->
+                  <div class="w-56 bg-gradient-to-b from-sante-600 to-sante-700 p-4">
+                    <div class="flex items-center gap-3 mb-8">
+                      <img src="/logo.jpg" alt="MEDSEN" class="h-8 w-auto rounded" />
+                    </div>
+                    <nav class="space-y-1">
+                      <div class="bg-white/20 text-white px-3 py-2 rounded-lg text-sm font-medium">Tableau de bord</div>
+                      <div class="text-white/70 px-3 py-2 text-sm">Établissements</div>
+                      <div class="text-white/70 px-3 py-2 text-sm flex justify-between">
+                        <span>Demandes</span>
+                        <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">23</span>
+                      </div>
+                      <div class="text-white/70 px-3 py-2 text-sm">Élèves</div>
+                      <div class="text-white/70 px-3 py-2 text-sm">Campagnes</div>
+                      <div class="text-white/70 px-3 py-2 text-sm">Statistiques</div>
+                    </nav>
+                  </div>
+                  <!-- Content -->
+                  <div class="flex-1 p-6 bg-gray-50">
+                    <div class="flex items-center justify-between mb-6">
+                      <div>
+                        <div class="text-gray-900 font-semibold text-lg">Bonjour, Dr. Diallo</div>
+                        <div class="text-gray-500 text-sm">IME Dakar Plateau - 22 Janvier 2026</div>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <button class="p-2 text-gray-400 hover:text-gray-600">
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                          </svg>
+                        </button>
+                        <div class="w-10 h-10 bg-sante-200 rounded-full flex items-center justify-center">
+                          <span class="text-sante-700 font-medium">AD</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-4 gap-4 mb-6">
+                      <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-sante-600">3,842</div>
+                        <div class="text-gray-500 text-xs">Élèves suivis</div>
+                      </div>
+                      <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-red-600">23</div>
+                        <div class="text-gray-500 text-xs">Demandes urgentes</div>
+                      </div>
+                      <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-green-600">87%</div>
+                        <div class="text-gray-500 text-xs">Couverture vaccin.</div>
+                      </div>
+                      <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <div class="text-2xl font-bold text-blue-600">156</div>
+                        <div class="text-gray-500 text-xs">Bilans ce mois</div>
+                      </div>
+                    </div>
+                    <!-- Recent requests -->
+                    <div class="bg-white rounded-xl shadow-sm p-4">
+                      <div class="flex items-center justify-between mb-4">
+                        <div class="font-semibold text-gray-900">Demandes récentes</div>
+                        <a href="#" class="text-sante-600 text-sm">Voir tout</a>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-3 p-3 bg-red-50 border border-red-100 rounded-lg">
+                          <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                          <div class="flex-1">
+                            <div class="text-sm font-medium text-gray-900">Urgence - CEM Mariama Bâ</div>
+                            <div class="text-xs text-gray-500">Élève avec douleurs thoraciques</div>
+                          </div>
+                          <span class="text-xs text-red-600 font-medium">Il y a 10 min</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-amber-50 border border-amber-100 rounded-lg">
+                          <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+                          <div class="flex-1">
+                            <div class="text-sm font-medium text-gray-900">Consultation - École Cheikh A. Bamba</div>
+                            <div class="text-xs text-gray-500">Troubles de la vision détectés</div>
+                          </div>
+                          <span class="text-xs text-amber-600 font-medium">Il y a 2h</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                          <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                          <div class="flex-1">
+                            <div class="text-sm font-medium text-gray-900">Orientation - Lycée Lamine Guèye</div>
+                            <div class="text-xs text-gray-500">Demande de PAI pour diabète</div>
+                          </div>
+                          <span class="text-xs text-gray-500">Il y a 1j</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dossier Élève -->
+        <div id="eleve" class="scroll-mt-40">
+          <div class="grid lg:grid-cols-5 gap-8 items-start">
+            <div class="lg:col-span-3 lg:order-1">
+              <!-- Simulation Dossier -->
+              <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                  </div>
+                  <div class="flex-1 text-center">
+                    <span class="text-xs text-gray-500">app.medsen.sn/eleves/12345</span>
+                  </div>
+                </div>
+                <div class="p-6 bg-gray-50 min-h-[500px]">
+                  <!-- Header élève -->
+                  <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                    <div class="flex items-start gap-6">
+                      <div class="w-20 h-20 bg-gradient-to-br from-sante-400 to-sante-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-bold text-white">AD</span>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="text-xl font-bold text-gray-900">Awa Diallo</h3>
+                        <p class="text-gray-500">12 ans - Classe de 5ème</p>
+                        <p class="text-sm text-gray-400">CEM Mariama Bâ, Dakar Plateau</p>
+                        <div class="flex gap-2 mt-3">
+                          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Vaccins à jour</span>
+                          <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">PAI actif</span>
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-sm text-gray-500">INE</div>
+                        <div class="font-mono text-gray-900">SN-2014-DKR-12345</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tabs -->
+                  <div class="flex gap-2 mb-6">
+                    <button class="bg-sante-500 text-white px-4 py-2 rounded-lg text-sm font-medium">Résumé</button>
+                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Vaccinations</button>
+                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Bilans</button>
+                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">Consultations</button>
+                    <button class="bg-white text-gray-600 px-4 py-2 rounded-lg text-sm">PAI/PPS</button>
+                  </div>
+                  <!-- Content -->
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-3">Dernier bilan (06/2025)</h4>
+                      <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                          <span class="text-gray-500">Taille</span>
+                          <span class="font-medium">148 cm</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-500">Poids</span>
+                          <span class="font-medium">42 kg</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-500">IMC</span>
+                          <span class="font-medium text-green-600">19.2 (Normal)</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-500">Vision</span>
+                          <span class="font-medium">10/10 OD - 10/10 OG</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <h4 class="font-semibold text-gray-900 mb-3">Alertes</h4>
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-sm p-2 bg-blue-50 rounded-lg">
+                          <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          <span class="text-blue-700">PAI Asthme - Renouvellement 03/2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm p-2 bg-green-50 rounded-lg">
+                          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span class="text-green-700">Tous les vaccins à jour</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-2 lg:order-2">
+              <div class="sticky top-40">
+                <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  Personnel médical
+                </span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Dossier Santé Élève</h2>
+                <p class="text-gray-600 mb-6">
+                  Chaque élève dispose d'un dossier numérique complet et sécurisé, accessible
+                  uniquement aux professionnels habilités.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Historique médical complet
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Carnet vaccinal numérique
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Bilans de santé (3, 6, 12, 15 ans)
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    PAI et PPS intégrés
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portail Parent -->
+        <div id="parent" class="scroll-mt-40">
+          <div class="grid lg:grid-cols-5 gap-8 items-start">
+            <div class="lg:col-span-2">
+              <div class="sticky top-40">
+                <span class="inline-block bg-cyan-100 text-cyan-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  Parent / Tuteur
+                </span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Portail Parents</h2>
+                <p class="text-gray-600 mb-6">
+                  Les parents ont accès à un espace dédié pour suivre la santé de leurs enfants
+                  et communiquer avec l'équipe médicale scolaire.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Vue du carnet de santé
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Consentements dématérialisés
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Notifications de rendez-vous
+                  </li>
+                  <li class="flex items-center gap-3 text-sm text-gray-600">
+                    <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Messagerie sécurisée
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lg:col-span-3">
+              <!-- Simulation Portail Parent - Mobile -->
+              <div class="max-w-sm mx-auto">
+                <div class="bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                  <div class="bg-white rounded-[2.5rem] overflow-hidden">
+                    <!-- Status bar -->
+                    <div class="bg-sante-600 px-6 py-2 flex justify-between text-white text-xs">
+                      <span>09:41</span>
+                      <div class="flex gap-1">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17 4h-3V2h-4v2H7v18h10V4z"/></svg>
+                      </div>
+                    </div>
+                    <!-- App content -->
+                    <div class="bg-gray-50 min-h-[500px]">
+                      <div class="bg-sante-600 px-6 py-4 text-white">
+                        <div class="text-sm opacity-80">Bonjour,</div>
+                        <div class="text-xl font-bold">Mme Fatou Diallo</div>
+                      </div>
+                      <div class="p-4 -mt-4">
+                        <div class="bg-white rounded-2xl p-4 shadow-lg mb-4">
+                          <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-sante-100 rounded-full flex items-center justify-center">
+                              <span class="text-sante-600 font-bold">AD</span>
+                            </div>
+                            <div>
+                              <div class="font-semibold text-gray-900">Awa Diallo</div>
+                              <div class="text-sm text-gray-500">5ème - CEM Mariama Bâ</div>
+                            </div>
+                          </div>
+                          <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-green-50 p-3 rounded-xl text-center">
+                              <svg class="w-6 h-6 text-green-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                              <div class="text-xs text-green-700">Vaccins à jour</div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-center">
+                              <svg class="w-6 h-6 text-blue-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                              </svg>
+                              <div class="text-xs text-blue-700">PAI actif</div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Notification -->
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+                          <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                              <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                            </div>
+                            <div>
+                              <div class="text-sm font-medium text-amber-800">Consentement requis</div>
+                              <div class="text-xs text-amber-600">Campagne de vaccination contre la rougeole</div>
+                              <button class="mt-2 bg-amber-500 text-white text-xs px-3 py-1 rounded-full">Répondre</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Quick actions -->
+                        <div class="grid grid-cols-4 gap-2">
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-6 h-6 text-sante-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                            <div class="text-xs text-gray-600">Carnet</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-6 h-6 text-blue-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <div class="text-xs text-gray-600">RDV</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-6 h-6 text-purple-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                            </svg>
+                            <div class="text-xs text-gray-600">Messages</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-6 h-6 text-amber-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div class="text-xs text-gray-600">Profil</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-sante-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">
+        Convaincu par ce que vous voyez ?
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        Ces aperçus ne montrent qu'une partie des fonctionnalités de MEDSEN.
+        Demandez une démonstration complète et personnalisée.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-white text-sante-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Demander une démonstration
+        </a>
+        <a href="/fonctionnalites" class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Voir toutes les fonctionnalités
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

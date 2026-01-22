@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "MEDSEN - Plateforme nationale de santé scolaire du Sénégal. Outil de mise en œuvre de la Convention Internationale des Droits de l'Enfant." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#009245" />
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>{title} | MEDSEN</title>
+  </head>
+  <body class="min-h-screen bg-white text-gray-900 antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-3">
+            <img src="/logo.jpg" alt="MEDSEN" class="h-12 w-auto" />
+            <div class="hidden sm:block">
+              <p class="text-xs text-gray-500">Santé Scolaire du Sénégal</p>
+            </div>
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-6">
+            <a href="/" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Accueil</a>
+            <a href="/fonctionnalites" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Fonctionnalités</a>
+            <a href="/nos-missions" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Nos Missions</a>
+            <a href="/a-propos" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">À Propos</a>
+            <a href="/contact" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Contact</a>
+            <a href="/demo" class="bg-sante-500 hover:bg-sante-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
+              Voir la démo
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col gap-4">
+            <a href="/" class="text-gray-700 hover:text-sante-600 font-medium">Accueil</a>
+            <a href="/fonctionnalites" class="text-gray-700 hover:text-sante-600 font-medium">Fonctionnalités</a>
+            <a href="/nos-missions" class="text-gray-700 hover:text-sante-600 font-medium">Nos Missions</a>
+            <a href="/a-propos" class="text-gray-700 hover:text-sante-600 font-medium">À Propos</a>
+            <a href="/contact" class="text-gray-700 hover:text-sante-600 font-medium">Contact</a>
+            <a href="/demo" class="bg-sante-500 text-white px-5 py-2.5 rounded-lg font-medium text-center">
+              Voir la démo
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <!-- Brand -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+              <img src="/logo.jpg" alt="MEDSEN" class="h-12 w-auto" />
+            </div>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Plateforme nationale de santé scolaire du Sénégal. Un outil concret de mise en œuvre
+              de la Convention Internationale des Droits de l'Enfant.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span class="w-3 h-3 bg-senegal-green rounded-full"></span>
+              <span class="w-3 h-3 bg-senegal-yellow rounded-full"></span>
+              <span class="w-3 h-3 bg-senegal-red rounded-full"></span>
+              <span class="ml-2">Fait au Sénégal avec fierté</span>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h3 class="font-semibold text-lg mb-4">Navigation</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="/fonctionnalites" class="hover:text-white transition-colors">Fonctionnalités</a></li>
+              <li><a href="/nos-missions" class="hover:text-white transition-colors">Nos Missions</a></li>
+              <li><a href="/a-propos" class="hover:text-white transition-colors">À Propos</a></li>
+              <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <h3 class="font-semibold text-lg mb-4">Cadre Juridique</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li><a href="https://www.unicef.org/child-rights-convention" target="_blank" class="hover:text-white transition-colors">Convention des Droits de l'Enfant</a></li>
+              <li><a href="/confidentialite" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+              <li><a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} MEDSEN. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

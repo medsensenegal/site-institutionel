@@ -1,0 +1,913 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Liste des fonctionnalités avec leurs liens CIDE
+const fonctionnalites = [
+  {
+    id: 'dossier-eleve',
+    titre: 'Dossier Santé Élève',
+    cide: 'Article 24 - Droit à la santé',
+    description: 'Un dossier numérique complet pour chaque élève avec tout son historique médical scolaire, accessible aux professionnels autorisés.',
+    details: [
+      'Identité, contacts d\'urgence et tuteurs légaux',
+      'Fiche d\'urgence : allergies, traitements, maladies chroniques',
+      'Historique des bilans de santé (3, 6, 9, 12, 15 ans)',
+      'Carnet vaccinal numérique conforme au PEV',
+      'Onglets : Prévention, Développement, Inclusion, Consultations'
+    ],
+    roles: ['Médecin IME', 'Infirmier', 'Personnel médical'],
+    color: 'emerald',
+    icon: 'user-card'
+  },
+  {
+    id: 'demandes',
+    titre: 'Circuit de Demandes École → IME',
+    cide: 'Article 24 - Accès aux soins',
+    description: 'Workflow complet pour les demandes d\'autorisation, de consultation ou d\'orientation envoyées par les établissements vers les IME.',
+    details: [
+      'Création de demande avec niveau de priorité (Urgent, Haute, Moyenne, Basse)',
+      'Types : Autorisation de soins, PAI, Aménagement, Orientation',
+      'Suivi du statut en temps réel (En attente, En révision, Approuvée, Rejetée)',
+      'Affectation au service et praticien concerné',
+      'Tableau de bord avec compteurs par statut'
+    ],
+    roles: ['Directeur d\'école', 'Secrétariat IME', 'Médecin'],
+    color: 'purple',
+    icon: 'workflow'
+  },
+  {
+    id: 'consultations',
+    titre: 'Consultations Médicales',
+    cide: 'Article 24 - Soins de santé',
+    description: 'Module complet pour la réalisation et le suivi des consultations médicales au sein des IME.',
+    details: [
+      'Types : Sur RDV, Sans RDV, Urgence',
+      'Recherche par élève, motif, praticien',
+      'Filtrage par date, type et statut',
+      'Statuts : Planifiée, En cours, Terminée, Annulée',
+      'Génération de certificats et ordonnances'
+    ],
+    roles: ['Médecin IME', 'Infirmier IME'],
+    color: 'blue',
+    icon: 'stethoscope'
+  },
+  {
+    id: 'pai-pps',
+    titre: 'PAI et PPS - Inclusion',
+    cide: 'Article 23 - Droits des enfants handicapés',
+    description: 'Gestion des Plans d\'Accueil Individualisé (PAI) et Projets Personnalisés de Scolarisation (PPS) pour les élèves à besoins spécifiques.',
+    details: [
+      'PAI : Asthme, Diabète, Allergies, Épilepsie...',
+      'Protocole de soins et d\'urgence intégré',
+      'PPS avec aménagements scolaires détaillés',
+      'Suivi des dates de validité et renouvellements',
+      'Coordination avec les structures spécialisées'
+    ],
+    roles: ['Médecin', 'Directeur', 'Équipe éducative'],
+    color: 'indigo',
+    icon: 'heart-hand'
+  },
+  {
+    id: 'vaccinations',
+    titre: 'Suivi Vaccinal',
+    cide: 'Article 24 - Prévention',
+    description: 'Carnet vaccinal numérique conforme au Programme Élargi de Vaccination (PEV) du Sénégal.',
+    details: [
+      'Visualisation du statut vaccinal de chaque élève',
+      'Conformité calculée automatiquement (%)',
+      'Alertes pour vaccins en retard ou à planifier',
+      'Historique avec dates, lots et praticiens',
+      'Statistiques de couverture par établissement/région'
+    ],
+    roles: ['Médecin', 'Infirmier', 'Coordinateur campagne'],
+    color: 'green',
+    icon: 'syringe'
+  },
+  {
+    id: 'bilans',
+    titre: 'Bilans de Santé',
+    cide: 'Article 24 - Dépistage précoce',
+    description: 'Organisation des bilans de santé obligatoires avec dépistages systématiques.',
+    details: [
+      'Bilans aux âges clés : 3 ans, 6 ans, 9 ans, 12 ans, 15 ans',
+      'Dépistages : Vision, Audition, Scoliose, Bucco-dentaire',
+      'Mesures : Taille, Poids, IMC avec alertes automatiques',
+      'Courbes de croissance (percentiles OMS)',
+      'Orientations vers spécialistes si nécessaire'
+    ],
+    roles: ['Médecin IME', 'Infirmier'],
+    color: 'teal',
+    icon: 'clipboard-check'
+  },
+  {
+    id: 'supervision',
+    titre: 'Supervision Nationale',
+    cide: 'Article 4 - Mise en œuvre des droits',
+    description: 'Tableaux de bord analytiques pour piloter la santé scolaire aux niveaux IME, régional et national.',
+    details: [
+      'KPI nationaux : élèves couverts, établissements, IME, personnel',
+      'Indicateurs clés vs objectifs (couverture vaccinale, bilans, visites CFEE)',
+      'Alertes nationales : régions en difficulté, pénuries',
+      'Carte interactive avec couverture par région',
+      'Génération de rapports pour le Ministère et l\'ONU (CIDE)'
+    ],
+    roles: ['Superviseur national', 'Coordinateur régional', 'Ministère'],
+    color: 'slate',
+    icon: 'chart-bar'
+  },
+  {
+    id: 'portail-parent',
+    titre: 'Portail Parents',
+    cide: 'Article 12 - Droit d\'être entendu',
+    description: 'Espace dédié aux parents pour suivre la santé de leurs enfants et communiquer avec l\'équipe médicale.',
+    details: [
+      'Vue du carnet de santé de chaque enfant',
+      'Notifications des rendez-vous et vaccinations',
+      'Réponse aux demandes de consentement',
+      'Historique des consultations',
+      'Messagerie sécurisée avec l\'équipe médicale'
+    ],
+    roles: ['Parent / Tuteur'],
+    color: 'cyan',
+    icon: 'users'
+  },
+  {
+    id: 'protection',
+    titre: 'Protection de l\'Enfance',
+    cide: 'Article 19 - Protection contre la violence',
+    description: 'Système sécurisé de signalement des situations préoccupantes (maltraitance, négligence, danger).',
+    details: [
+      'Signalement confidentiel avec niveau d\'urgence',
+      'Circuit sécurisé vers les services compétents',
+      'Suivi de la prise en charge',
+      'Historique des actions menées',
+      'Coordination avec les services sociaux'
+    ],
+    roles: ['Tout personnel habilité'],
+    color: 'red',
+    icon: 'shield'
+  }
+];
+---
+
+<Layout title="Fonctionnalités">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-sante-600 to-sante-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          Découvrez la plateforme
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+          Fonctionnalités de MEDSEN
+        </h1>
+        <p class="text-xl text-white/90">
+          Une plateforme complète couvrant l'ensemble du parcours de santé scolaire,
+          alignée sur la Convention Internationale des Droits de l'Enfant.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation rapide -->
+  <section class="bg-white border-b border-gray-200 sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-4 py-4 overflow-x-auto">
+        {fonctionnalites.slice(0, 5).map((f) => (
+          <a href={`#${f.id}`} class="text-sm font-medium text-gray-600 hover:text-sante-600 whitespace-nowrap transition-colors">
+            {f.titre.split(' ')[0]}
+          </a>
+        ))}
+        <span class="text-gray-300">|</span>
+        <a href="#supervision" class="text-sm font-medium text-sante-600 whitespace-nowrap">
+          Supervision →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fonctionnalités détaillées -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-32">
+
+        <!-- DOSSIER ÉLÈVE -->
+        <div id="dossier-eleve" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                {fonctionnalites[0].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[0].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[0].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[0].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[0].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+            <!-- Maquette Dossier Élève -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="flex-1 text-center">
+                  <span class="text-xs text-gray-500">app.medsen.sn/eleves/12345</span>
+                </div>
+              </div>
+              <div class="p-6 bg-gray-50">
+                <!-- Header élève -->
+                <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+                  <div class="flex items-start gap-4">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center">
+                      <span class="text-xl font-bold text-white">AD</span>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-bold text-gray-900">Awa Diallo</h3>
+                      <p class="text-sm text-gray-500">12 ans - Classe de 5ème</p>
+                      <p class="text-xs text-gray-400">CEM Mariama Bâ, Dakar</p>
+                      <div class="flex gap-2 mt-2">
+                        <span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">Allergies: Arachides</span>
+                        <span class="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">PAI Actif</span>
+                      </div>
+                    </div>
+                    <div class="text-right text-xs text-gray-400">
+                      <div>INE</div>
+                      <div class="font-mono">SN-2014-DKR-12345</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Tabs -->
+                <div class="flex gap-1 mb-4 bg-white rounded-lg p-1">
+                  <button class="bg-emerald-500 text-white px-3 py-1.5 rounded text-xs font-medium">Identité</button>
+                  <button class="text-gray-600 px-3 py-1.5 text-xs">Prévention</button>
+                  <button class="text-gray-600 px-3 py-1.5 text-xs">Développement</button>
+                  <button class="text-gray-600 px-3 py-1.5 text-xs">Inclusion</button>
+                  <button class="text-gray-600 px-3 py-1.5 text-xs">Consultations</button>
+                </div>
+                <!-- Fiche urgence -->
+                <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                  <h4 class="font-semibold text-red-800 text-sm mb-3">Fiche d'urgence</h4>
+                  <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div>
+                      <span class="text-red-600 font-medium">Allergies</span>
+                      <div class="flex gap-1 mt-1">
+                        <span class="bg-red-200 text-red-800 px-2 py-0.5 rounded">Arachides</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="text-red-600 font-medium">Maladies chroniques</span>
+                      <div class="flex gap-1 mt-1">
+                        <span class="bg-orange-200 text-orange-800 px-2 py-0.5 rounded">Asthme léger</span>
+                      </div>
+                    </div>
+                    <div class="col-span-2">
+                      <span class="text-red-600 font-medium">Traitements</span>
+                      <div class="flex gap-1 mt-1">
+                        <span class="bg-blue-200 text-blue-800 px-2 py-0.5 rounded">Ventoline (si besoin)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEMANDES -->
+        <div id="demandes" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Maquette Demandes -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden lg:order-1">
+              <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="flex-1 text-center">
+                  <span class="text-xs text-gray-500">app.medsen.sn/demandes</span>
+                </div>
+              </div>
+              <div class="p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 class="font-bold text-gray-900">Demandes</h3>
+                    <p class="text-xs text-gray-500">Gestion des demandes d'autorisation</p>
+                  </div>
+                </div>
+                <!-- Stats cards -->
+                <div class="grid grid-cols-4 gap-2 mb-4">
+                  <div class="bg-white rounded-lg p-3 shadow-sm border-t-2 border-yellow-500">
+                    <p class="text-xs text-gray-500">En attente</p>
+                    <p class="text-xl font-bold text-yellow-600">8</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm border-t-2 border-blue-500">
+                    <p class="text-xs text-gray-500">En révision</p>
+                    <p class="text-xl font-bold text-blue-600">3</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm border-t-2 border-green-500">
+                    <p class="text-xs text-gray-500">Approuvées</p>
+                    <p class="text-xl font-bold text-green-600">24</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm border-t-2 border-red-500">
+                    <p class="text-xs text-gray-500">Rejetées</p>
+                    <p class="text-xl font-bold text-red-600">2</p>
+                  </div>
+                </div>
+                <!-- Table -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <table class="w-full text-xs">
+                    <thead class="bg-gray-50 text-gray-500">
+                      <tr>
+                        <th class="px-3 py-2 text-left">Élève</th>
+                        <th class="px-3 py-2 text-left">Type</th>
+                        <th class="px-3 py-2 text-left">Priorité</th>
+                        <th class="px-3 py-2 text-left">Statut</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                      <tr>
+                        <td class="px-3 py-2 font-medium">Ndiaye Aminata</td>
+                        <td class="px-3 py-2">PAI</td>
+                        <td class="px-3 py-2"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Urgent</span></td>
+                        <td class="px-3 py-2"><span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">En attente</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-3 py-2 font-medium">Sow Ibrahima</td>
+                        <td class="px-3 py-2">Autorisation</td>
+                        <td class="px-3 py-2"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">Haute</span></td>
+                        <td class="px-3 py-2"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">En révision</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-3 py-2 font-medium">Diop Ousmane</td>
+                        <td class="px-3 py-2">Aménagement</td>
+                        <td class="px-3 py-2"><span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">Moyenne</span></td>
+                        <td class="px-3 py-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Approuvée</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="lg:order-2">
+              <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                {fonctionnalites[1].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[1].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[1].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[1].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[1].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONSULTATIONS -->
+        <div id="consultations" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                {fonctionnalites[2].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[2].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[2].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[2].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[2].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+            <!-- Maquette Consultations -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="flex-1 text-center">
+                  <span class="text-xs text-gray-500">app.medsen.sn/consultations</span>
+                </div>
+              </div>
+              <div class="p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 class="font-bold text-gray-900">Consultations</h3>
+                    <p class="text-xs text-gray-500">Historique et suivi médical</p>
+                  </div>
+                  <button class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-lg">+ Nouvelle</button>
+                </div>
+                <!-- Filtres -->
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                  <input type="text" placeholder="Rechercher..." class="text-xs px-3 py-2 border rounded-lg bg-white" />
+                  <select class="text-xs px-3 py-2 border rounded-lg bg-white text-gray-600">
+                    <option>Tous les types</option>
+                  </select>
+                  <select class="text-xs px-3 py-2 border rounded-lg bg-white text-gray-600">
+                    <option>Tous les statuts</option>
+                  </select>
+                </div>
+                <!-- Table -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <table class="w-full text-xs">
+                    <thead class="bg-gray-50 text-gray-500">
+                      <tr>
+                        <th class="px-3 py-2 text-left">Date</th>
+                        <th class="px-3 py-2 text-left">Élève</th>
+                        <th class="px-3 py-2 text-left">Type</th>
+                        <th class="px-3 py-2 text-left">Motif</th>
+                        <th class="px-3 py-2 text-left">Statut</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                      <tr>
+                        <td class="px-3 py-2">
+                          <div class="font-medium">22/01/2026</div>
+                          <div class="text-gray-400">09:30</div>
+                        </td>
+                        <td class="px-3 py-2">
+                          <div class="font-medium text-blue-600">Diallo Awa</div>
+                          <div class="text-gray-400">5ème</div>
+                        </td>
+                        <td class="px-3 py-2"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Sur RDV</span></td>
+                        <td class="px-3 py-2">Suivi asthme - PAI</td>
+                        <td class="px-3 py-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Terminée</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-3 py-2">
+                          <div class="font-medium">22/01/2026</div>
+                          <div class="text-gray-400">10:15</div>
+                        </td>
+                        <td class="px-3 py-2">
+                          <div class="font-medium text-blue-600">Ndiaye Moussa</div>
+                          <div class="text-gray-400">CM2</div>
+                        </td>
+                        <td class="px-3 py-2"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Urgence</span></td>
+                        <td class="px-3 py-2">Chute - Plaie genou</td>
+                        <td class="px-3 py-2"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Terminée</span></td>
+                      </tr>
+                      <tr>
+                        <td class="px-3 py-2">
+                          <div class="font-medium">23/01/2026</div>
+                          <div class="text-gray-400">08:45</div>
+                        </td>
+                        <td class="px-3 py-2">
+                          <div class="font-medium text-blue-600">Sow Fatou</div>
+                          <div class="text-gray-400">CE2</div>
+                        </td>
+                        <td class="px-3 py-2"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Sur RDV</span></td>
+                        <td class="px-3 py-2">Bilan de santé 9 ans</td>
+                        <td class="px-3 py-2"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Planifiée</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUPERVISION NATIONALE -->
+        <div id="supervision" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Maquette Supervision -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden lg:order-1">
+              <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="flex-1 text-center">
+                  <span class="text-xs text-gray-500">app.medsen.sn/supervision</span>
+                </div>
+              </div>
+              <div class="p-6 bg-gray-50">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                      <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                      </svg>
+                      Tableau de bord national
+                    </h3>
+                    <p class="text-xs text-gray-500">Mercredi 22 janvier 2026</p>
+                  </div>
+                  <button class="bg-slate-700 text-white text-xs px-3 py-1.5 rounded-lg">Générer rapport</button>
+                </div>
+                <!-- KPI -->
+                <div class="grid grid-cols-4 gap-2 mb-4">
+                  <div class="bg-white rounded-lg p-3 shadow-sm">
+                    <p class="text-xs text-gray-500">Élèves couverts</p>
+                    <p class="text-lg font-bold text-blue-600">3,456,789</p>
+                    <p class="text-xs text-green-600">+5.2%</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm">
+                    <p class="text-xs text-gray-500">Établissements</p>
+                    <p class="text-lg font-bold text-green-600">15,234</p>
+                    <p class="text-xs text-green-600">+2.1%</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm">
+                    <p class="text-xs text-gray-500">IME opérationnelles</p>
+                    <p class="text-lg font-bold text-purple-600">28</p>
+                    <p class="text-xs text-green-600">+7.1%</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm">
+                    <p class="text-xs text-gray-500">Personnel santé</p>
+                    <p class="text-lg font-bold text-orange-600">287</p>
+                    <p class="text-xs text-red-600">-1.2%</p>
+                  </div>
+                </div>
+                <!-- Alertes -->
+                <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+                  <h4 class="font-semibold text-red-700 text-xs flex items-center gap-1 mb-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                    ALERTES NATIONALES (4)
+                  </h4>
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2 text-xs">
+                      <span class="bg-red-600 text-white px-1.5 py-0.5 rounded text-[10px] font-bold">CRITIQUE</span>
+                      <span class="text-gray-700">Région Matam: couverture vaccinale &lt; 60%</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs">
+                      <span class="bg-yellow-600 text-white px-1.5 py-0.5 rounded text-[10px] font-bold">ATTENTION</span>
+                      <span class="text-gray-700">Visites BAC en retard dans 5 régions</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Indicateurs vs Objectifs -->
+                <div class="bg-white rounded-lg p-3 shadow-sm">
+                  <h4 class="font-semibold text-gray-900 text-xs mb-3">Indicateurs clés vs Objectifs</h4>
+                  <div class="space-y-3">
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span>Couverture vaccinale</span>
+                        <span><span class="font-bold text-orange-600">88%</span> / 95%</span>
+                      </div>
+                      <div class="h-1.5 bg-gray-100 rounded-full">
+                        <div class="h-full bg-orange-500 rounded-full" style="width: 93%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span>Bilans annuels réalisés</span>
+                        <span><span class="font-bold text-orange-600">72%</span> / 80%</span>
+                      </div>
+                      <div class="h-1.5 bg-gray-100 rounded-full">
+                        <div class="h-full bg-orange-500 rounded-full" style="width: 90%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span>Visites examens CFEE</span>
+                        <span><span class="font-bold text-green-600">85%</span> / 100%</span>
+                      </div>
+                      <div class="h-1.5 bg-gray-100 rounded-full">
+                        <div class="h-full bg-green-500 rounded-full" style="width: 85%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:order-2">
+              <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                {fonctionnalites[6].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[6].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[6].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[6].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[6].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAI/PPS -->
+        <div id="pai-pps" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                {fonctionnalites[3].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[3].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[3].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[3].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[3].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+            <!-- Maquette PAI -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div class="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                </div>
+                <div class="flex-1 text-center">
+                  <span class="text-xs text-gray-500">app.medsen.sn/eleves/12345 → Inclusion</span>
+                </div>
+              </div>
+              <div class="p-6 bg-gray-50">
+                <h3 class="font-bold text-gray-900 mb-4">Projets d'Accueil Individualisé (PAI)</h3>
+                <!-- PAI Card -->
+                <div class="bg-white rounded-lg border p-4 mb-4">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="font-semibold text-gray-900">PAI Asthme</span>
+                    <span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">Actif</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3 text-xs text-gray-600">
+                    <div>
+                      <span class="font-medium">Début:</span> 01/09/2023
+                    </div>
+                    <div>
+                      <span class="font-medium">Fin:</span> 31/08/2026
+                    </div>
+                    <div class="col-span-2">
+                      <span class="font-medium">Médecin:</span> Dr. Diallo
+                    </div>
+                  </div>
+                  <div class="mt-3 p-2 bg-indigo-50 rounded text-xs">
+                    <span class="font-medium text-indigo-700">Protocole d'urgence:</span>
+                    <p class="text-gray-600 mt-1">En cas de crise: Ventoline 2 bouffées, position assise, alerter l'infirmerie</p>
+                  </div>
+                </div>
+                <!-- PPS Section -->
+                <h3 class="font-bold text-gray-900 mb-4 mt-6">Projet Personnalisé de Scolarisation (PPS)</h3>
+                <div class="bg-white rounded-lg border p-4">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="font-semibold text-gray-900">PPS</span>
+                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">Expiré</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3 text-xs text-gray-600">
+                    <div>
+                      <span class="font-medium">Début:</span> 01/09/2024
+                    </div>
+                    <div>
+                      <span class="font-medium">Fin:</span> 31/08/2025
+                    </div>
+                    <div class="col-span-2">
+                      <span class="font-medium">Aménagements:</span> Temps supplémentaire examens
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PORTAIL PARENT -->
+        <div id="portail-parent" class="scroll-mt-32">
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Maquette Mobile Parent -->
+            <div class="flex justify-center lg:order-1">
+              <div class="max-w-xs">
+                <div class="bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                  <div class="bg-white rounded-[2.5rem] overflow-hidden">
+                    <div class="bg-sante-600 px-6 py-3 flex justify-between text-white text-xs">
+                      <span>09:41</span>
+                      <div class="flex gap-1">
+                        <span>📶</span>
+                        <span>🔋</span>
+                      </div>
+                    </div>
+                    <div class="bg-gray-50 min-h-[450px]">
+                      <div class="bg-sante-600 px-6 py-4 text-white">
+                        <div class="text-sm opacity-80">Bonjour,</div>
+                        <div class="text-xl font-bold">Mme Fatou Diallo</div>
+                      </div>
+                      <div class="p-4 -mt-4">
+                        <div class="bg-white rounded-2xl p-4 shadow-lg mb-4">
+                          <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-sante-100 rounded-full flex items-center justify-center">
+                              <span class="text-sante-600 font-bold">AD</span>
+                            </div>
+                            <div>
+                              <div class="font-semibold text-gray-900">Awa Diallo</div>
+                              <div class="text-sm text-gray-500">5ème - CEM Mariama Bâ</div>
+                            </div>
+                          </div>
+                          <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-green-50 p-3 rounded-xl text-center">
+                              <svg class="w-6 h-6 text-green-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                              <div class="text-xs text-green-700">Vaccins à jour</div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-xl text-center">
+                              <svg class="w-6 h-6 text-blue-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                              </svg>
+                              <div class="text-xs text-blue-700">PAI actif</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+                          <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                              <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                            </div>
+                            <div>
+                              <div class="text-sm font-medium text-amber-800">Consentement requis</div>
+                              <div class="text-xs text-amber-600">Campagne vaccination rougeole</div>
+                              <button class="mt-2 bg-amber-500 text-white text-xs px-3 py-1 rounded-full">Répondre</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2">
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-5 h-5 text-sante-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                            <div class="text-[10px] text-gray-600">Carnet</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-5 h-5 text-blue-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <div class="text-[10px] text-gray-600">RDV</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-5 h-5 text-purple-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                            </svg>
+                            <div class="text-[10px] text-gray-600">Messages</div>
+                          </div>
+                          <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+                            <svg class="w-5 h-5 text-gray-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div class="text-[10px] text-gray-600">Profil</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:order-2">
+              <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                <span class="w-2 h-2 bg-cyan-500 rounded-full"></span>
+                {fonctionnalites[7].cide}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">{fonctionnalites[7].titre}</h2>
+              <p class="text-lg text-gray-600 mb-6">{fonctionnalites[7].description}</p>
+              <ul class="space-y-3 mb-6">
+                {fonctionnalites[7].details.map((detail) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                {fonctionnalites[7].roles.map((role) => (
+                  <span class="bg-gray-200 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">{role}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Autres fonctionnalités en grille -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Autres fonctionnalités</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Vaccinations -->
+        <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border border-green-100">
+          <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <div class="text-xs text-green-600 font-semibold mb-1">{fonctionnalites[4].cide}</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{fonctionnalites[4].titre}</h3>
+          <p class="text-gray-600 text-sm">{fonctionnalites[4].description}</p>
+        </div>
+
+        <!-- Bilans -->
+        <div class="bg-gradient-to-br from-teal-50 to-white rounded-xl p-6 border border-teal-100">
+          <div class="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="text-xs text-teal-600 font-semibold mb-1">{fonctionnalites[5].cide}</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{fonctionnalites[5].titre}</h3>
+          <p class="text-gray-600 text-sm">{fonctionnalites[5].description}</p>
+        </div>
+
+        <!-- Protection -->
+        <div class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100">
+          <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div class="text-xs text-red-600 font-semibold mb-1">{fonctionnalites[8].cide}</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{fonctionnalites[8].titre}</h3>
+          <p class="text-gray-600 text-sm">{fonctionnalites[8].description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-sante-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">
+        Envie de voir MEDSEN en action ?
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        Demandez une démonstration personnalisée et découvrez comment MEDSEN
+        peut transformer la santé scolaire dans votre région.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/demo" class="bg-white text-sante-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Explorer la démo
+        </a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+          Nous contacter
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
