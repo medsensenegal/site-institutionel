@@ -65,9 +65,9 @@ const demos = [
   </section>
 
   <!-- Navigation des vues -->
-  <section id="explorer" class="bg-white border-b border-gray-200 sticky top-20 z-40">
+  <section id="explorer" class="bg-white border-b border-gray-200 sticky top-20 z-40 overflow-x-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex gap-4 py-4 overflow-x-auto">
+      <div class="flex gap-4 py-4 overflow-x-auto scrollbar-hide">
         {demos.map((demo, index) => (
           <a
             href={`#${demo.id}`}
@@ -81,8 +81,8 @@ const demos = [
   </section>
 
   <!-- Démos détaillées -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-16 bg-gray-50 overflow-x-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div class="space-y-24">
 
         <!-- Dashboard IME -->
@@ -266,13 +266,15 @@ const demos = [
                     </div>
                   </div>
                   <!-- Tabs -->
-                  <div class="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0 mb-4 sm:mb-6">
-                    <div class="flex gap-1 sm:gap-2 min-w-max">
+                  <div class="overflow-hidden">
+                    <div class="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0 mb-4 sm:mb-6">
+                      <div class="flex gap-1 sm:gap-2 min-w-max">
                       <button class="bg-sante-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium">Résumé</button>
                       <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Vaccinations</button>
                       <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Bilans</button>
                       <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">Consultations</button>
                       <button class="bg-white text-gray-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm">PAI/PPS</button>
+                      </div>
                     </div>
                   </div>
                   <!-- Content -->
