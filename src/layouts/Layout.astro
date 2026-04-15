@@ -4,17 +4,76 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  lang?: 'fr' | 'en';
 }
 
-const { title, description = "MEDSEN - Plateforme nationale de santé scolaire du Sénégal. Outil de mise en œuvre de la Convention Internationale des Droits de l'Enfant." } = Astro.props;
+const { title, lang = 'fr', description } = Astro.props;
+
+const isFr = lang === 'fr';
+
+const defaultDesc = isFr
+  ? "MEDSEN - Plateforme nationale de santé scolaire du Sénégal. Outil de mise en œuvre de la Convention Internationale des Droits de l'Enfant."
+  : "MEDSEN - Senegal's national school health platform. A tool for implementing the International Convention on the Rights of the Child.";
+
+const desc = description || defaultDesc;
+
+const nav = isFr ? {
+  subtitle: 'Santé Scolaire du Sénégal',
+  home: 'Accueil',
+  features: 'Fonctionnalités',
+  missions: 'Nos Missions',
+  about: 'À Propos',
+  contact: 'Contact',
+  demo: 'Voir la démo',
+  footerDesc: "Plateforme nationale de santé scolaire du Sénégal. Un outil concret de mise en œuvre de la Convention Internationale des Droits de l'Enfant.",
+  madeIn: 'Fait au Sénégal avec fierté',
+  navigation: 'Navigation',
+  legal: 'Cadre Juridique',
+  crc: "Convention des Droits de l'Enfant",
+  privacy: 'Politique de confidentialité',
+  legalNotices: 'Mentions légales',
+  allRights: 'Tous droits réservés.',
+  switchLang: 'EN',
+  switchUrl: '/en',
+} : {
+  subtitle: 'School Health in Senegal',
+  home: 'Home',
+  features: 'Features',
+  missions: 'Our Missions',
+  about: 'About',
+  contact: 'Contact',
+  demo: 'View Demo',
+  footerDesc: "Senegal's national school health platform. A concrete tool for implementing the International Convention on the Rights of the Child.",
+  madeIn: 'Made in Senegal with pride',
+  navigation: 'Navigation',
+  legal: 'Legal Framework',
+  crc: 'Convention on the Rights of the Child',
+  privacy: 'Privacy Policy',
+  legalNotices: 'Legal Notices',
+  allRights: 'All rights reserved.',
+  switchLang: 'FR',
+  switchUrl: '/',
+};
+
+const prefix = isFr ? '' : '/en';
+const links = {
+  home: isFr ? '/' : '/en',
+  features: `${prefix}/${isFr ? 'fonctionnalites' : 'features'}`,
+  missions: `${prefix}/${isFr ? 'nos-missions' : 'our-missions'}`,
+  about: `${prefix}/${isFr ? 'a-propos' : 'about'}`,
+  contact: `${prefix}/contact`,
+  demo: `${prefix}/demo`,
+  privacy: `${prefix}/${isFr ? 'confidentialite' : 'privacy'}`,
+  legal: `${prefix}/${isFr ? 'mentions-legales' : 'legal'}`,
+};
 ---
 
 <!DOCTYPE html>
-<html lang="fr" class="overflow-x-hidden">
+<html lang={lang} class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     <meta name="theme-color" content="#009245" />
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,22 +87,25 @@ const { title, description = "MEDSEN - Plateforme nationale de santé scolaire d
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
-          <a href="/" class="flex items-center gap-3">
+          <a href={links.home} class="flex items-center gap-3">
             <img src="/logo.jpg" alt="MEDSEN" class="h-12 w-auto" />
             <div class="hidden sm:block">
-              <p class="text-xs text-gray-500">Santé Scolaire du Sénégal</p>
+              <p class="text-xs text-gray-500">{nav.subtitle}</p>
             </div>
           </a>
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center gap-6">
-            <a href="/" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Accueil</a>
-            <a href="/fonctionnalites" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Fonctionnalités</a>
-            <a href="/nos-missions" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Nos Missions</a>
-            <a href="/a-propos" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">À Propos</a>
-            <a href="/contact" class="text-gray-700 hover:text-sante-600 font-medium transition-colors">Contact</a>
-            <a href="/demo" class="bg-sante-500 hover:bg-sante-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
-              Voir la démo
+            <a href={links.home} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.home}</a>
+            <a href={links.features} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.features}</a>
+            <a href={links.missions} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.missions}</a>
+            <a href={links.about} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.about}</a>
+            <a href={links.contact} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.contact}</a>
+            <a href={links.demo} class="bg-sante-500 hover:bg-sante-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
+              {nav.demo}
+            </a>
+            <a href={nav.switchUrl} class="text-gray-500 hover:text-sante-600 font-medium transition-colors text-sm border border-gray-300 px-3 py-1.5 rounded-lg">
+              {nav.switchLang}
             </a>
           </div>
 
@@ -58,13 +120,16 @@ const { title, description = "MEDSEN - Plateforme nationale de santé scolaire d
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden pb-4">
           <div class="flex flex-col gap-4">
-            <a href="/" class="text-gray-700 hover:text-sante-600 font-medium">Accueil</a>
-            <a href="/fonctionnalites" class="text-gray-700 hover:text-sante-600 font-medium">Fonctionnalités</a>
-            <a href="/nos-missions" class="text-gray-700 hover:text-sante-600 font-medium">Nos Missions</a>
-            <a href="/a-propos" class="text-gray-700 hover:text-sante-600 font-medium">À Propos</a>
-            <a href="/contact" class="text-gray-700 hover:text-sante-600 font-medium">Contact</a>
-            <a href="/demo" class="bg-sante-500 text-white px-5 py-2.5 rounded-lg font-medium text-center">
-              Voir la démo
+            <a href={links.home} class="text-gray-700 hover:text-sante-600 font-medium">{nav.home}</a>
+            <a href={links.features} class="text-gray-700 hover:text-sante-600 font-medium">{nav.features}</a>
+            <a href={links.missions} class="text-gray-700 hover:text-sante-600 font-medium">{nav.missions}</a>
+            <a href={links.about} class="text-gray-700 hover:text-sante-600 font-medium">{nav.about}</a>
+            <a href={links.contact} class="text-gray-700 hover:text-sante-600 font-medium">{nav.contact}</a>
+            <a href={links.demo} class="bg-sante-500 text-white px-5 py-2.5 rounded-lg font-medium text-center">
+              {nav.demo}
+            </a>
+            <a href={nav.switchUrl} class="text-gray-500 hover:text-sante-600 font-medium text-center border border-gray-300 px-3 py-1.5 rounded-lg">
+              {nav.switchLang}
             </a>
           </div>
         </div>
@@ -86,42 +151,41 @@ const { title, description = "MEDSEN - Plateforme nationale de santé scolaire d
               <img src="/logo.jpg" alt="MEDSEN" class="h-12 w-auto" />
             </div>
             <p class="text-gray-400 mb-6 max-w-md">
-              Plateforme nationale de santé scolaire du Sénégal. Un outil concret de mise en œuvre
-              de la Convention Internationale des Droits de l'Enfant.
+              {nav.footerDesc}
             </p>
             <div class="flex items-center gap-2 text-sm text-gray-500">
               <span class="w-3 h-3 bg-senegal-green rounded-full"></span>
               <span class="w-3 h-3 bg-senegal-yellow rounded-full"></span>
               <span class="w-3 h-3 bg-senegal-red rounded-full"></span>
-              <span class="ml-2">Fait au Sénégal avec fierté</span>
+              <span class="ml-2">{nav.madeIn}</span>
             </div>
           </div>
 
           <!-- Links -->
           <div>
-            <h3 class="font-semibold text-lg mb-4">Navigation</h3>
+            <h3 class="font-semibold text-lg mb-4">{nav.navigation}</h3>
             <ul class="space-y-3 text-gray-400">
-              <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-              <li><a href="/fonctionnalites" class="hover:text-white transition-colors">Fonctionnalités</a></li>
-              <li><a href="/nos-missions" class="hover:text-white transition-colors">Nos Missions</a></li>
-              <li><a href="/a-propos" class="hover:text-white transition-colors">À Propos</a></li>
-              <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+              <li><a href={links.home} class="hover:text-white transition-colors">{nav.home}</a></li>
+              <li><a href={links.features} class="hover:text-white transition-colors">{nav.features}</a></li>
+              <li><a href={links.missions} class="hover:text-white transition-colors">{nav.missions}</a></li>
+              <li><a href={links.about} class="hover:text-white transition-colors">{nav.about}</a></li>
+              <li><a href={links.contact} class="hover:text-white transition-colors">{nav.contact}</a></li>
             </ul>
           </div>
 
           <!-- Legal -->
           <div>
-            <h3 class="font-semibold text-lg mb-4">Cadre Juridique</h3>
+            <h3 class="font-semibold text-lg mb-4">{nav.legal}</h3>
             <ul class="space-y-3 text-gray-400">
-              <li><a href="https://www.unicef.org/child-rights-convention" target="_blank" class="hover:text-white transition-colors">Convention des Droits de l'Enfant</a></li>
-              <li><a href="/confidentialite" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
-              <li><a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a></li>
+              <li><a href="https://www.unicef.org/child-rights-convention" target="_blank" class="hover:text-white transition-colors">{nav.crc}</a></li>
+              <li><a href={links.privacy} class="hover:text-white transition-colors">{nav.privacy}</a></li>
+              <li><a href={links.legal} class="hover:text-white transition-colors">{nav.legalNotices}</a></li>
             </ul>
           </div>
         </div>
 
         <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} MEDSEN. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} MEDSEN. {nav.allRights}</p>
         </div>
       </div>
     </footer>
