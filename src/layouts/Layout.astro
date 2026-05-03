@@ -18,17 +18,18 @@ const defaultDesc = isFr
 const desc = description || defaultDesc;
 
 const nav = isFr ? {
-  subtitle: 'Santé Scolaire du Sénégal',
+  subtitle: 'Solutions de santé scolaire',
   home: 'Accueil',
-  features: 'Fonctionnalités',
-  missions: 'Nos Missions',
-  about: 'À Propos',
+  features: 'Solution',
+  missions: 'Pour qui',
+  about: 'Entreprise',
+  foundation: 'Fondation',
   contact: 'Contact',
-  demo: 'Voir la démo',
-  footerDesc: "Plateforme nationale de santé scolaire du Sénégal. Un outil concret de mise en œuvre de la Convention Internationale des Droits de l'Enfant.",
-  madeIn: 'Fait au Sénégal avec fierté',
+  demo: 'Demander une démo',
+  footerDesc: "MEDSEN est l'éditeur sénégalais de la solution numérique de santé scolaire. Conçue au Sénégal, pensée pour l'Afrique. Un produit privé au service des gouvernements et institutions, qui réinvestit une part de ses bénéfices via la Fondation MEDSEN.",
+  madeIn: 'Conçu au Sénégal, déployable en Afrique',
   navigation: 'Navigation',
-  legal: 'Cadre Juridique',
+  legal: 'Légal',
   crc: "Convention des Droits de l'Enfant",
   privacy: 'Politique de confidentialité',
   legalNotices: 'Mentions légales',
@@ -36,17 +37,18 @@ const nav = isFr ? {
   switchLang: 'EN',
   switchUrl: '/en',
 } : {
-  subtitle: 'School Health in Senegal',
+  subtitle: 'School Health Solutions',
   home: 'Home',
-  features: 'Features',
-  missions: 'Our Missions',
-  about: 'About',
+  features: 'Solution',
+  missions: 'Who is it for',
+  about: 'Company',
+  foundation: 'Foundation',
   contact: 'Contact',
-  demo: 'View Demo',
-  footerDesc: "Senegal's national school health platform. A concrete tool for implementing the International Convention on the Rights of the Child.",
-  madeIn: 'Made in Senegal with pride',
+  demo: 'Request a demo',
+  footerDesc: "MEDSEN is the Senegalese editor of the digital school health solution. Built in Senegal, designed for Africa. A private product serving governments and institutions, reinvesting part of its profits through the MEDSEN Foundation.",
+  madeIn: 'Built in Senegal, deployable across Africa',
   navigation: 'Navigation',
-  legal: 'Legal Framework',
+  legal: 'Legal',
   crc: 'Convention on the Rights of the Child',
   privacy: 'Privacy Policy',
   legalNotices: 'Legal Notices',
@@ -61,6 +63,7 @@ const links = {
   features: `${prefix}/${isFr ? 'fonctionnalites' : 'features'}`,
   missions: `${prefix}/${isFr ? 'nos-missions' : 'our-missions'}`,
   about: `${prefix}/${isFr ? 'a-propos' : 'about'}`,
+  foundation: `${prefix}/${isFr ? 'fondation' : 'foundation'}`,
   contact: `${prefix}/contact`,
   demo: `${prefix}/demo`,
   privacy: `${prefix}/${isFr ? 'confidentialite' : 'privacy'}`,
@@ -95,11 +98,15 @@ const links = {
           </a>
 
           <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center gap-6">
+          <div class="hidden md:flex items-center gap-5">
             <a href={links.home} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.home}</a>
             <a href={links.features} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.features}</a>
             <a href={links.missions} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.missions}</a>
             <a href={links.about} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.about}</a>
+            <a href={links.foundation} class="text-gray-700 hover:text-sante-600 font-medium transition-colors flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-senegal-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.293z"/></svg>
+              {nav.foundation}
+            </a>
             <a href={links.contact} class="text-gray-700 hover:text-sante-600 font-medium transition-colors">{nav.contact}</a>
             <a href={links.demo} class="bg-sante-500 hover:bg-sante-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
               {nav.demo}
@@ -124,6 +131,10 @@ const links = {
             <a href={links.features} class="text-gray-700 hover:text-sante-600 font-medium">{nav.features}</a>
             <a href={links.missions} class="text-gray-700 hover:text-sante-600 font-medium">{nav.missions}</a>
             <a href={links.about} class="text-gray-700 hover:text-sante-600 font-medium">{nav.about}</a>
+            <a href={links.foundation} class="text-gray-700 hover:text-sante-600 font-medium flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-senegal-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.293z"/></svg>
+              {nav.foundation}
+            </a>
             <a href={links.contact} class="text-gray-700 hover:text-sante-600 font-medium">{nav.contact}</a>
             <a href={links.demo} class="bg-sante-500 text-white px-5 py-2.5 rounded-lg font-medium text-center">
               {nav.demo}
@@ -169,6 +180,7 @@ const links = {
               <li><a href={links.features} class="hover:text-white transition-colors">{nav.features}</a></li>
               <li><a href={links.missions} class="hover:text-white transition-colors">{nav.missions}</a></li>
               <li><a href={links.about} class="hover:text-white transition-colors">{nav.about}</a></li>
+              <li><a href={links.foundation} class="hover:text-white transition-colors">{nav.foundation}</a></li>
               <li><a href={links.contact} class="hover:text-white transition-colors">{nav.contact}</a></li>
             </ul>
           </div>
