@@ -2,206 +2,154 @@
 import Layout from '../../../layouts/Layout.astro';
 ---
 
-<Layout title="Our Missions" lang="en">
+<Layout title="Who is it for" lang="en" description="MEDSEN serves ministries, institutions and operators that run school health. For each: situation, value brought, contracting model.">
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-sante-600 to-sante-700 text-white py-20">
+  <section class="bg-gradient-to-br from-sante-600 to-sante-700 text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <span class="inline-block bg-white/20 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-          Our purpose
+        <span class="inline-block bg-white/20 text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          Who is it for
         </span>
-        <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
-          Our Missions
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">
+          Three buyers, one solution.
         </h1>
-        <p class="text-xl text-white/90">
-          MEDSEN's mission is to guarantee the right to health for every school-age child
-          in Senegal, in accordance with the International Convention on the Rights of the Child.
+        <p class="text-lg text-white/90">
+          For each type of organization: what MEDSEN delivers concretely, and under what model.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Main mission -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">
-            A national vision for school health
-          </h2>
-          <p class="text-lg text-gray-600 mb-6">
-            Senegal has more than <strong>6 million students</strong> spread across 14 regions.
-            Today, their health monitoring relies on fragmented, often paper-based processes
-            that do not allow for a comprehensive overview or continuous follow-up.
+  <!-- Ministries -->
+  <section id="ministries" class="py-20 bg-white scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-1">
+          <div class="w-14 h-14 bg-senegal-green/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-senegal-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11"/></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Ministries & governments</h2>
+          <p class="text-gray-500 text-sm">
+            Ministries of Education, Health, school medical control divisions, school inspectorates.
           </p>
-          <p class="text-lg text-gray-600 mb-6">
-            MEDSEN offers a <strong>unified digital platform</strong> that connects schools,
-            School Medical Inspectorates (IME), families, and health authorities.
-          </p>
-          <div class="bg-sante-50 border-l-4 border-sante-500 p-6 rounded-r-lg">
-            <p class="text-sante-800 font-medium italic">
-              "Every child has the right to the highest attainable standard of health
-              and to access health services."
+        </div>
+
+        <div class="lg:col-span-2 space-y-6">
+          <div>
+            <div class="text-xs font-semibold text-senegal-green uppercase tracking-wider mb-2">Your situation</div>
+            <p class="text-gray-700">
+              Guaranteeing every child's fundamental rights — health, education, protection — is part
+              of your sovereign mission, within the framework of the Convention on the Rights of the
+              Child. Yet on the ground, the lack of consolidated data, untraceable campaigns and
+              field teams working without a shared tool make that mission hard to deliver at scale.
             </p>
-            <p class="text-sante-600 text-sm mt-2">— Article 24, Convention on the Rights of the Child</p>
           </div>
-        </div>
-        <div class="bg-gray-100 rounded-2xl p-8">
-          <h3 class="text-xl font-bold text-gray-900 mb-6">Our measurable objectives</h3>
-          <div class="space-y-6">
-            <div class="flex items-center gap-4">
-              <div class="w-16 h-16 bg-sante-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                100%
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">Vaccination coverage</div>
-                <div class="text-gray-600">According to the national immunization schedule</div>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                100%
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">Mandatory health assessments</div>
-                <div class="text-gray-600">At ages 3, 6, and 12 for every child</div>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                0
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">Children left behind</div>
-                <div class="text-gray-600">Every student in the health system</div>
-              </div>
-            </div>
+
+          <div>
+            <div class="text-xs font-semibold text-senegal-green uppercase tracking-wider mb-2">What MEDSEN brings</div>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3"><span class="text-senegal-green font-bold">→</span> Nationwide coverage through a single cloud platform.</li>
+              <li class="flex gap-3"><span class="text-senegal-green font-bold">→</span> Real-time consolidated indicators by region, district and school.</li>
+              <li class="flex gap-3"><span class="text-senegal-green font-bold">→</span> Configurable reference data: school cycles, national EPI, tracked conditions.</li>
+              <li class="flex gap-3"><span class="text-senegal-green font-bold">→</span> Compliant with data protection and public procurement rules.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-xs font-semibold text-senegal-green uppercase tracking-wider mb-2">Contracting model</div>
+            <p class="text-gray-700">
+              Multi-year SaaS subscription, support and field-team training.
+              Adaptable to your public procurement procedures.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The 5 missions -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          Five fundamental missions
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Each mission addresses a concrete need and falls within the legal framework
-          of the Convention on the Rights of the Child.
-        </p>
+  <!-- Donors -->
+  <section id="donors" class="py-20 bg-gray-50 scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-1">
+          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Donors & institutions</h2>
+          <p class="text-gray-500 text-sm">
+            Multilateral institutions, cooperation agencies, funders.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Your situation</div>
+            <p class="text-gray-700">
+              You fund health or education programs. You need reliable indicators, comparable
+              across countries, aligned with SDGs 3 and 4.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">What MEDSEN brings</div>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3"><span class="text-blue-600 font-bold">→</span> Structured exportable reporting, ready-to-use SDG indicators.</li>
+              <li class="flex gap-3"><span class="text-blue-600 font-bold">→</span> Cross-country comparability via a common core.</li>
+              <li class="flex gap-3"><span class="text-blue-600 font-bold">→</span> Full traceability of funded field actions.</li>
+              <li class="flex gap-3"><span class="text-blue-600 font-bold">→</span> Open APIs to integrate with your monitoring systems.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Contracting model</div>
+            <p class="text-gray-700">
+              Co-funding of national rollouts, or full coverage of a country program within
+              a regional initiative.
+            </p>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="space-y-8">
-        <!-- Mission 1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-20 h-20 bg-sante-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl font-bold text-sante-600">1</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Prevention and early screening</h3>
-              <p class="text-gray-600 mb-4">
-                Organize systematic health assessments at key ages (3, 6, 9, 12, 15 years)
-                and screening campaigns (visual, auditory, dental, nutritional)
-                to identify problems before they impact schooling.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-sante-100 text-sante-700 text-sm px-3 py-1 rounded-full">Mandatory assessments</span>
-                <span class="bg-sante-100 text-sante-700 text-sm px-3 py-1 rounded-full">Screenings</span>
-                <span class="bg-sante-100 text-sante-700 text-sm px-3 py-1 rounded-full">Growth charts</span>
-              </div>
-            </div>
+  <!-- NGOs -->
+  <section id="ngos" class="py-20 bg-white scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-1">
+          <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M9 12a3 3 0 100-6 3 3 0 000 6z"/></svg>
           </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">NGOs & school networks</h2>
+          <p class="text-gray-500 text-sm">
+            International NGOs, private school networks, faith-based institutions.
+          </p>
         </div>
 
-        <!-- Mission 2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl font-bold text-blue-600">2</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Vaccination and immunization</h3>
-              <p class="text-gray-600 mb-4">
-                Monitor the vaccination status of every student according to Senegal's Expanded Programme
-                on Immunization (EPI). Identify delays, organize catch-up sessions, and ensure vaccination coverage.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">Digital vaccination record</span>
-                <span class="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">Delay alerts</span>
-                <span class="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">Vaccination campaigns</span>
-              </div>
-            </div>
+        <div class="lg:col-span-2 space-y-6">
+          <div>
+            <div class="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Your situation</div>
+            <p class="text-gray-700">
+              You run several schools and need to professionalize health monitoring while
+              meeting your donors' reporting requirements.
+            </p>
           </div>
-        </div>
 
-        <!-- Mission 3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl font-bold text-purple-600">3</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Inclusion of children with special needs</h3>
-              <p class="text-gray-600 mb-4">
-                Identify and support students with special needs: disabilities, learning disorders,
-                chronic illnesses. Implement IAPs (Individualized Accommodation Plans)
-                and PSPs (Personalized Schooling Projects).
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full">IAP</span>
-                <span class="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full">PSP</span>
-                <span class="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full">Specialized referrals</span>
-              </div>
-            </div>
+          <div>
+            <div class="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">What MEDSEN brings</div>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3"><span class="text-purple-600 font-bold">→</span> Dedicated multi-site tenant, full data isolation.</li>
+              <li class="flex gap-3"><span class="text-purple-600 font-bold">→</span> Daily operational tracking of consultations and campaigns.</li>
+              <li class="flex gap-3"><span class="text-purple-600 font-bold">→</span> Automated reports in the format your donors expect.</li>
+              <li class="flex gap-3"><span class="text-purple-600 font-bold">→</span> Pricing scaled to network size.</li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Mission 4 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-20 h-20 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl font-bold text-amber-600">4</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Child protection</h3>
-              <p class="text-gray-600 mb-4">
-                Establish a reporting system for concerning situations (abuse, neglect,
-                danger) with a secure pathway to the appropriate services. Train staff to recognize
-                warning signs.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-amber-100 text-amber-700 text-sm px-3 py-1 rounded-full">Secure reporting</span>
-                <span class="bg-amber-100 text-amber-700 text-sm px-3 py-1 rounded-full">Case follow-up</span>
-                <span class="bg-amber-100 text-amber-700 text-sm px-3 py-1 rounded-full">Social services coordination</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mission 5 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="w-20 h-20 bg-teal-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl font-bold text-teal-600">5</span>
-            </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">Monitoring and decision support</h3>
-              <p class="text-gray-600 mb-4">
-                Provide health and education authorities with real-time dashboards
-                to steer school health policy at the local, regional, and national levels.
-                Produce the reports required for CRC monitoring.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-teal-100 text-teal-700 text-sm px-3 py-1 rounded-full">Real-time statistics</span>
-                <span class="bg-teal-100 text-teal-700 text-sm px-3 py-1 rounded-full">CRC indicators</span>
-                <span class="bg-teal-100 text-teal-700 text-sm px-3 py-1 rounded-full">Automated reports</span>
-              </div>
-            </div>
+          <div>
+            <div class="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Contracting model</div>
+            <p class="text-gray-700">
+              SaaS subscription per school, with progressive rollout possible.
+            </p>
           </div>
         </div>
       </div>
@@ -212,13 +160,9 @@ import Layout from '../../../layouts/Layout.astro';
   <section class="py-20 bg-sante-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-bold text-white mb-6">
-        Together, let's guarantee every child's right to health
+        Your case isn't listed? Let's talk.
       </h2>
-      <p class="text-xl text-white/90 mb-8">
-        MEDSEN is ready to be deployed. Contact us for a demonstration
-        or to discuss a partnership.
-      </p>
-      <a href="/en/contact" class="inline-block bg-white text-sante-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition-colors">
+      <a href="/en/contact" class="inline-block bg-white text-sante-600 hover:bg-gray-100 px-7 py-3.5 rounded-xl font-semibold transition-colors">
         Contact us
       </a>
     </div>
